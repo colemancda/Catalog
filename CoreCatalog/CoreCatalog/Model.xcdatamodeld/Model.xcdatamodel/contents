@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A282b" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
     <entity name="Image" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
-        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="images" inverseEntity="Product" syncable="YES"/>
-        <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="images" inverseEntity="Store" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="image" inverseEntity="Product" syncable="YES"/>
+        <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="image" inverseEntity="Store" syncable="YES"/>
     </entity>
     <entity name="Listing" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="listings" inverseEntity="Product" syncable="YES"/>
-        <relationship name="stores" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="listings" inverseEntity="Store" syncable="YES"/>
+        <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="listings" inverseEntity="Store" syncable="YES"/>
     </entity>
     <entity name="Product" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="product" inverseEntity="Image" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="product" inverseEntity="Image" syncable="YES"/>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Listing" inverseName="product" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <entity name="Store" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="directionsNote" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="officeNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="store" inverseEntity="Image" syncable="YES"/>
-        <relationship name="listings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Listing" inverseName="stores" inverseEntity="Listing" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="store" inverseEntity="Image" syncable="YES"/>
+        <relationship name="listings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Listing" inverseName="store" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Store" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="Product" positionX="-36" positionY="72" width="128" height="90"/>
-        <element name="Listing" positionX="-18" positionY="81" width="128" height="105"/>
         <element name="Image" positionX="0" positionY="90" width="128" height="90"/>
+        <element name="Listing" positionX="-18" positionY="81" width="128" height="105"/>
+        <element name="Product" positionX="-36" positionY="72" width="128" height="90"/>
+        <element name="Store" positionX="-63" positionY="-18" width="128" height="30"/>
     </elements>
 </model>
