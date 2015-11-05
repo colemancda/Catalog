@@ -13,16 +13,19 @@
     </entity>
     <entity name="Product" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="product" inverseEntity="Image" syncable="YES"/>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Listing" inverseName="product" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <entity name="Store" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="directionsNote" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="district" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="officeNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" minValueString="0" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,7 +35,7 @@
     <elements>
         <element name="Image" positionX="0" positionY="90" width="128" height="90"/>
         <element name="Listing" positionX="-18" positionY="81" width="128" height="105"/>
-        <element name="Product" positionX="-36" positionY="72" width="128" height="90"/>
-        <element name="Store" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="Product" positionX="-36" positionY="72" width="128" height="105"/>
+        <element name="Store" positionX="-63" positionY="-18" width="128" height="240"/>
     </elements>
 </model>

@@ -13,6 +13,8 @@ public final class Product: NSManagedObject {
     
     @NSManaged public private(set) var name: String
     
+    @NSManaged public private(set) var productIdentifier: String
+    
     @NSManaged public private(set) var image: Image
     
     @NSManaged public private(set) var listings: Set<Listing>?

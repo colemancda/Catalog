@@ -19,11 +19,15 @@ public final class Store: NSManagedObject {
     
     @NSManaged public private(set) var text: String
     
+    @NSManaged public private(set) var phoneNumber: String
+    
     // Address
     
     @NSManaged public private(set) var state: String
     
     @NSManaged public private(set) var city: String
+    
+    @NSManaged public private(set) var district: String
     
     @NSManaged public private(set) var street: String
     
