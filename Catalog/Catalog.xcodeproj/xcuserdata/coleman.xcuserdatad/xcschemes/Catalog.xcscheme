@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6EF012271BEAD6B3009B7ED0"
-               BuildableName = "CompuPeru.app"
-               BlueprintName = "CompuPeru"
-               ReferencedContainer = "container:CompuPeru.xcodeproj">
+               BlueprintIdentifier = "6E67170C1BEB109E00E9C5D8"
+               BuildableName = "Catalog.app"
+               BlueprintName = "Catalog"
+               ReferencedContainer = "container:Catalog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6EF0123B1BEAD6B3009B7ED0"
-               BuildableName = "CompuPeruUITests.xctest"
-               BlueprintName = "CompuPeruUITests"
-               ReferencedContainer = "container:CompuPeru.xcodeproj">
+               BlueprintIdentifier = "6E6717201BEB109E00E9C5D8"
+               BuildableName = "CatalogUITests.xctest"
+               BlueprintName = "CatalogUITests"
+               ReferencedContainer = "container:Catalog.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6EF012271BEAD6B3009B7ED0"
-            BuildableName = "CompuPeru.app"
-            BlueprintName = "CompuPeru"
-            ReferencedContainer = "container:CompuPeru.xcodeproj">
+            BlueprintIdentifier = "6E67170C1BEB109E00E9C5D8"
+            BuildableName = "Catalog.app"
+            BlueprintName = "Catalog"
+            ReferencedContainer = "container:Catalog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,10 +65,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6EF012271BEAD6B3009B7ED0"
-            BuildableName = "CompuPeru.app"
-            BlueprintName = "CompuPeru"
-            ReferencedContainer = "container:CompuPeru.xcodeproj">
+            BlueprintIdentifier = "6E67170C1BEB109E00E9C5D8"
+            BuildableName = "Catalog.app"
+            BlueprintName = "Catalog"
+            ReferencedContainer = "container:Catalog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -84,10 +84,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6EF012271BEAD6B3009B7ED0"
-            BuildableName = "CompuPeru.app"
-            BlueprintName = "CompuPeru"
-            ReferencedContainer = "container:CompuPeru.xcodeproj">
+            BlueprintIdentifier = "6E67170C1BEB109E00E9C5D8"
+            BuildableName = "Catalog.app"
+            BlueprintName = "Catalog"
+            ReferencedContainer = "container:Catalog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

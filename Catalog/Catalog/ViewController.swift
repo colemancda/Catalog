@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  CompuPeru
+//  Catalog
 //
 //  Created by Alsey Coleman Miller on 11/4/15.
 //  Copyright © 2015 ColemanCDA. All rights reserved.

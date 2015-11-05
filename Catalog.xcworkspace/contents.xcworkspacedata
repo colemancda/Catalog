@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CoreCatalog/CoreCatalog/../../CompuPeru/CompuPeru.xcodeproj">
+      location = "group:Catalog/Catalog.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:CoreCatalog/CoreCatalog.xcodeproj">

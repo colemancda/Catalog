@@ -1,6 +1,6 @@
 //
-//  CompuPeruUITests.swift
-//  CompuPeruUITests
+//  CatalogUITests.swift
+//  CatalogUITests
 //
 //  Created by Alsey Coleman Miller on 11/4/15.
 //  Copyright © 2015 ColemanCDA. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CompuPeruUITests: XCTestCase {
+class CatalogUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

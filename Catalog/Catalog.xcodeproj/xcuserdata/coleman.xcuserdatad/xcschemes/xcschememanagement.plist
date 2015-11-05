@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CompuPeru.xcscheme</key>
+		<key>Catalog.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6EF012271BEAD6B3009B7ED0</key>
+		<key>6E67170C1BEB109E00E9C5D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6EF0123B1BEAD6B3009B7ED0</key>
+		<key>6E6717201BEB109E00E9C5D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
