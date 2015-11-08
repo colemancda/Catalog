@@ -15,6 +15,12 @@
 		6EE054FB1BE89B5A00F31720 /* CoreCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE054F01BE89B5A00F31720 /* CoreCatalog.framework */; };
 		6EE055001BE89B5A00F31720 /* CoreCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE054FF1BE89B5A00F31720 /* CoreCatalogTests.swift */; };
 		6EE0550C1BE89B8500F31720 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0550A1BE89B8500F31720 /* Model.xcdatamodeld */; };
+		6EE3FBC11BEEF63B00C9CC3B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E559FC71BE9ABC400A924FA /* Store.swift */; };
+		6EE3FBC21BEEF63B00C9CC3B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0550A1BE89B8500F31720 /* Model.xcdatamodeld */; };
+		6EE3FBC31BEEF63B00C9CC3B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E559FCB1BE9B16400A924FA /* Product.swift */; };
+		6EE3FBC41BEEF63B00C9CC3B /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E559FC91BE9B15000A924FA /* Listing.swift */; };
+		6EE3FBC51BEEF63B00C9CC3B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E559FC51BE9A82900A924FA /* Image.swift */; };
+		6EE3FBC81BEEF63B00C9CC3B /* CoreCatalog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE054F31BE89B5A00F31720 /* CoreCatalog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +45,7 @@
 		6EE054FF1BE89B5A00F31720 /* CoreCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreCatalogTests.swift; sourceTree = "<group>"; };
 		6EE055011BE89B5A00F31720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE0550B1BE89B8500F31720 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		6EE3FBCD1BEEF63B00C9CC3B /* .framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = .framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +61,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE054FB1BE89B5A00F31720 /* CoreCatalog.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE3FBC61BEEF63B00C9CC3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +88,7 @@
 			children = (
 				6EE054F01BE89B5A00F31720 /* CoreCatalog.framework */,
 				6EE054FA1BE89B5A00F31720 /* CoreCatalogTests.xctest */,
+				6EE3FBCD1BEEF63B00C9CC3B /* .framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,12 +127,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EE3FBC71BEEF63B00C9CC3B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EE3FBC81BEEF63B00C9CC3B /* CoreCatalog.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6EE054EF1BE89B5A00F31720 /* CoreCatalog */ = {
+		6EE054EF1BE89B5A00F31720 /* CoreCatalog OS X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6EE055041BE89B5A00F31720 /* Build configuration list for PBXNativeTarget "CoreCatalog" */;
+			buildConfigurationList = 6EE055041BE89B5A00F31720 /* Build configuration list for PBXNativeTarget "CoreCatalog OS X" */;
 			buildPhases = (
 				6EE054EB1BE89B5A00F31720 /* Sources */,
 				6EE054EC1BE89B5A00F31720 /* Frameworks */,
@@ -128,7 +151,7 @@
 			);
 			dependencies = (
 			);
-			name = CoreCatalog;
+			name = "CoreCatalog OS X";
 			productName = CoreCatalog;
 			productReference = 6EE054F01BE89B5A00F31720 /* CoreCatalog.framework */;
 			productType = "com.apple.product-type.framework";
@@ -150,6 +173,24 @@
 			productName = CoreCatalogTests;
 			productReference = 6EE054FA1BE89B5A00F31720 /* CoreCatalogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6EE3FBBF1BEEF63B00C9CC3B /* CoreCatalog iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EE3FBCA1BEEF63B00C9CC3B /* Build configuration list for PBXNativeTarget "CoreCatalog iOS" */;
+			buildPhases = (
+				6EE3FBC01BEEF63B00C9CC3B /* Sources */,
+				6EE3FBC61BEEF63B00C9CC3B /* Frameworks */,
+				6EE3FBC71BEEF63B00C9CC3B /* Headers */,
+				6EE3FBC91BEEF63B00C9CC3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CoreCatalog iOS";
+			productName = CoreCatalog;
+			productReference = 6EE3FBCD1BEEF63B00C9CC3B /* .framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -181,8 +222,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6EE054EF1BE89B5A00F31720 /* CoreCatalog */,
+				6EE054EF1BE89B5A00F31720 /* CoreCatalog OS X */,
 				6EE054F91BE89B5A00F31720 /* CoreCatalogTests */,
+				6EE3FBBF1BEEF63B00C9CC3B /* CoreCatalog iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -196,6 +238,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6EE054F81BE89B5A00F31720 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EE3FBC91BEEF63B00C9CC3B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,12 +274,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EE3FBC01BEEF63B00C9CC3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EE3FBC11BEEF63B00C9CC3B /* Store.swift in Sources */,
+				6EE3FBC21BEEF63B00C9CC3B /* Model.xcdatamodeld in Sources */,
+				6EE3FBC31BEEF63B00C9CC3B /* Product.swift in Sources */,
+				6EE3FBC41BEEF63B00C9CC3B /* Listing.swift in Sources */,
+				6EE3FBC51BEEF63B00C9CC3B /* Image.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		6EE054FD1BE89B5A00F31720 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6EE054EF1BE89B5A00F31720 /* CoreCatalog */;
+			target = 6EE054EF1BE89B5A00F31720 /* CoreCatalog OS X */;
 			targetProxy = 6EE054FC1BE89B5A00F31720 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -276,6 +337,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = $PROJECT_NAME;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -316,6 +378,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = $PROJECT_NAME;
 				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -335,9 +398,8 @@
 				INFOPLIST_FILE = CoreCatalog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -356,9 +418,8 @@
 				INFOPLIST_FILE = CoreCatalog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -385,6 +446,51 @@
 			};
 			name = Release;
 		};
+		6EE3FBCB1BEEF63B00C9CC3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreCatalog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6EE3FBCC1BEEF63B00C9CC3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreCatalog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -397,7 +503,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6EE055041BE89B5A00F31720 /* Build configuration list for PBXNativeTarget "CoreCatalog" */ = {
+		6EE055041BE89B5A00F31720 /* Build configuration list for PBXNativeTarget "CoreCatalog OS X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EE055051BE89B5A00F31720 /* Debug */,
@@ -411,6 +517,15 @@
 			buildConfigurations = (
 				6EE055081BE89B5A00F31720 /* Debug */,
 				6EE055091BE89B5A00F31720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EE3FBCA1BEEF63B00C9CC3B /* Build configuration list for PBXNativeTarget "CoreCatalog iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EE3FBCB1BEEF63B00C9CC3B /* Debug */,
+				6EE3FBCC1BEEF63B00C9CC3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

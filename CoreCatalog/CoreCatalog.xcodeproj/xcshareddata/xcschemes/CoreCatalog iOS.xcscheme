@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6EE054EF1BE89B5A00F31720"
-               BuildableName = "CoreCatalog.framework"
-               BlueprintName = "CoreCatalog"
+               BlueprintIdentifier = "6EE3FBBF1BEEF63B00C9CC3B"
+               BuildableName = "CoreCatalog iOS.framework"
+               BlueprintName = "CoreCatalog iOS"
                ReferencedContainer = "container:CoreCatalog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6EE054F91BE89B5A00F31720"
-               BuildableName = "CoreCatalogTests.xctest"
-               BlueprintName = "CoreCatalogTests"
-               ReferencedContainer = "container:CoreCatalog.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6EE054EF1BE89B5A00F31720"
-            BuildableName = "CoreCatalog.framework"
-            BlueprintName = "CoreCatalog"
-            ReferencedContainer = "container:CoreCatalog.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6EE054EF1BE89B5A00F31720"
-            BuildableName = "CoreCatalog.framework"
-            BlueprintName = "CoreCatalog"
+            BlueprintIdentifier = "6EE3FBBF1BEEF63B00C9CC3B"
+            BuildableName = "CoreCatalog iOS.framework"
+            BlueprintName = "CoreCatalog iOS"
             ReferencedContainer = "container:CoreCatalog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6EE054EF1BE89B5A00F31720"
-            BuildableName = "CoreCatalog.framework"
-            BlueprintName = "CoreCatalog"
+            BlueprintIdentifier = "6EE3FBBF1BEEF63B00C9CC3B"
+            BuildableName = "CoreCatalog iOS.framework"
+            BlueprintName = "CoreCatalog iOS"
             ReferencedContainer = "container:CoreCatalog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
