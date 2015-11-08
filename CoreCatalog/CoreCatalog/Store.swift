@@ -23,6 +23,8 @@ public final class Store: NSManagedObject {
     
     // Address
     
+    @NSManaged public private(set) var country: String
+    
     @NSManaged public private(set) var state: String
     
     @NSManaged public private(set) var city: String
