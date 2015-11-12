@@ -8,21 +8,10 @@
 
 import SwiftFoundation
 
-// MARK: - Lock
-
-// MARK: - User
-
 /*
-public extension Model.User {
+public extension CoreCatalog.Model.Store {
     
     public struct Validate {
-        
-        private static let usernameRegex = try! RegularExpression("([a-z0-9_-]){6,}", options: [.ExtendedSyntax])
-        
-        public static func username(value: String) -> Bool {
-            
-            return usernameRegex.match(value)?.range.count == value.utf8.count
-        }
         
         private static let passwordRegex = try! RegularExpression("([A-Za-z0-9_-]){6,}", options: [.ExtendedSyntax])
         

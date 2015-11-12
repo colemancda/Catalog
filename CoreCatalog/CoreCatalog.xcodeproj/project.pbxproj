@@ -37,6 +37,10 @@
 		6EF4215B1BF43354002D730E /* HTTPAuthenticationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF421531BF43354002D730E /* HTTPAuthenticationContext.swift */; };
 		6EF4215E1BF43380002D730E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF4215D1BF43380002D730E /* Model.swift */; };
 		6EF4215F1BF43380002D730E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF4215D1BF43380002D730E /* Model.swift */; };
+		6EFCB9A41BF4504F00AAF48E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFCB9A21BF4504F00AAF48E /* libcrypto.a */; };
+		6EFCB9A51BF4504F00AAF48E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFCB9A31BF4504F00AAF48E /* libssl.a */; };
+		6EFCB9A81BF4506500AAF48E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFCB9A61BF4506500AAF48E /* libcrypto.a */; };
+		6EFCB9A91BF4506500AAF48E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFCB9A71BF4506500AAF48E /* libssl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		6EF421521BF43354002D730E /* RequestAuthenticationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAuthenticationContext.swift; sourceTree = "<group>"; };
 		6EF421531BF43354002D730E /* HTTPAuthenticationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAuthenticationContext.swift; sourceTree = "<group>"; };
 		6EF4215D1BF43380002D730E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6EFCB9A21BF4504F00AAF48E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../Carthage/Build/iOS/OpenSSL.framework/SharedFrameworks/libcrypto.a; sourceTree = "<group>"; };
+		6EFCB9A31BF4504F00AAF48E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../Carthage/Build/iOS/OpenSSL.framework/SharedFrameworks/libssl.a; sourceTree = "<group>"; };
+		6EFCB9A61BF4506500AAF48E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../Carthage/Build/Mac/OpenSSL.framework/Versions/A/SharedFrameworks/libcrypto.a; sourceTree = "<group>"; };
+		6EFCB9A71BF4506500AAF48E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../Carthage/Build/Mac/OpenSSL.framework/Versions/A/SharedFrameworks/libssl.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFCB9A91BF4506500AAF48E /* libssl.a in Frameworks */,
+				6EFCB9A81BF4506500AAF48E /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFCB9A51BF4504F00AAF48E /* libssl.a in Frameworks */,
+				6EFCB9A41BF4504F00AAF48E /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +113,7 @@
 		6EE054E61BE89B5900F31720 = {
 			isa = PBXGroup;
 			children = (
+				6EFCB9971BF44FAC00AAF48E /* Dependencies */,
 				6EE054F21BE89B5A00F31720 /* CoreCatalog */,
 				6EE054FE1BE89B5A00F31720 /* CoreCatalogTests */,
 				6EE054F11BE89B5A00F31720 /* Products */,
@@ -162,6 +175,33 @@
 				6EF421531BF43354002D730E /* HTTPAuthenticationContext.swift */,
 			);
 			name = Authentication;
+			sourceTree = "<group>";
+		};
+		6EFCB9971BF44FAC00AAF48E /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				6EFCB9981BF44FBA00AAF48E /* OS X */,
+				6EFCB9991BF44FBE00AAF48E /* iOS */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		6EFCB9981BF44FBA00AAF48E /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				6EFCB9A61BF4506500AAF48E /* libcrypto.a */,
+				6EFCB9A71BF4506500AAF48E /* libssl.a */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		6EFCB9991BF44FBE00AAF48E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6EFCB9A21BF4504F00AAF48E /* libcrypto.a */,
+				6EFCB9A31BF4504F00AAF48E /* libssl.a */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,7 +509,10 @@
 				INFOPLIST_FILE = CoreCatalog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = $SRCROOT/../Carthage/Build/Mac/OpenSSL.framework/SharedFrameworks;
+				LIBRARY_SEARCH_PATHS = (
+					$SRCROOT/../Carthage/Build/Mac/OpenSSL.framework/SharedFrameworks,
+					"$(PROJECT_DIR)",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
 				SKIP_INSTALL = YES;
@@ -495,7 +538,10 @@
 				INFOPLIST_FILE = CoreCatalog/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = $SRCROOT/../Carthage/Build/Mac/OpenSSL.framework/SharedFrameworks;
+				LIBRARY_SEARCH_PATHS = (
+					$SRCROOT/../Carthage/Build/Mac/OpenSSL.framework/SharedFrameworks,
+					"$(PROJECT_DIR)",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
 				SKIP_INSTALL = YES;
@@ -543,7 +589,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = $SRCROOT/../Carthage/Build/iOS/OpenSSL.framework/SharedFrameworks;
+				LIBRARY_SEARCH_PATHS = (
+					$SRCROOT/../Carthage/Build/iOS/OpenSSL.framework/SharedFrameworks,
+					"$(PROJECT_DIR)",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
 				SDKROOT = iphoneos;
@@ -572,7 +621,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = $SRCROOT/../Carthage/Build/iOS/OpenSSL.framework/SharedFrameworks;
+				LIBRARY_SEARCH_PATHS = (
+					$SRCROOT/../Carthage/Build/iOS/OpenSSL.framework/SharedFrameworks,
+					"$(PROJECT_DIR)",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.CoreCatalog;
 				SDKROOT = iphoneos;

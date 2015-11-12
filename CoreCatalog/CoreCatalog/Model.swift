@@ -178,7 +178,7 @@ public extension Model {
             
             public static let Currency = (name: "currency", property: CoreModel.Attribute(type: .String))
             
-            public static let Price = (name: "price", property: CoreModel.Attribute(type: .Number(.Boolean)))
+            public static let Price = (name: "price", property: CoreModel.Attribute(type: .Number(.Double)))
         }
         
         public struct Relationship {
