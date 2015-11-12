@@ -12,6 +12,7 @@ import SwiftFoundation
 
 // MARK: - User
 
+/*
 public extension Model.User {
     
     public struct Validate {
@@ -37,4 +38,4 @@ public extension Model.User {
             return emailRegex.match(value)?.range.count == value.utf8.count
         }
     }
-}
+}*/
