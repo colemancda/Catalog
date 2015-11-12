@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CatalogServer/CatalogServer.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CatalogAdmin/CatalogAdmin.xcodeproj">
    </FileRef>
    <FileRef
