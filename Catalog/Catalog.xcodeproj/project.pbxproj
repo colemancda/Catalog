@@ -13,6 +13,7 @@
 		6E6717181BEB109E00E9C5D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6717171BEB109E00E9C5D8 /* Assets.xcassets */; };
 		6E67171B1BEB109E00E9C5D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6717191BEB109E00E9C5D8 /* LaunchScreen.storyboard */; };
 		6E6717261BEB109E00E9C5D8 /* CatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6717251BEB109E00E9C5D8 /* CatalogUITests.swift */; };
+		6EFC75D61BF58835002A4822 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFC75D51BF58835002A4822 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +23,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E67170C1BEB109E00E9C5D8;
 			remoteInfo = Catalog;
+		};
+		6EFC75DD1BF58AA2002A4822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EE054F01BE89B5A00F31720;
+			remoteInfo = "CoreCatalog OS X";
+		};
+		6EFC75DF1BF58AA2002A4822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EE054FA1BE89B5A00F31720;
+			remoteInfo = CoreCatalogTests;
+		};
+		6EFC75E11BF58AA2002A4822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EE3FBCD1BEEF63B00C9CC3B;
+			remoteInfo = "CoreCatalog iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -36,6 +58,9 @@
 		6E6717211BEB109E00E9C5D8 /* CatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6717251BEB109E00E9C5D8 /* CatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogUITests.swift; sourceTree = "<group>"; };
 		6E6717271BEB109E00E9C5D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EFC75D41BF58828002A4822 /* Catalog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Catalog.entitlements; sourceTree = "<group>"; };
+		6EFC75D51BF58835002A4822 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreCatalog.xcodeproj; path = ../CoreCatalog/CoreCatalog.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFC75D61BF58835002A4822 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +85,7 @@
 		6E6717041BEB109E00E9C5D8 = {
 			isa = PBXGroup;
 			children = (
+				6EFC75E31BF58AA6002A4822 /* Frameworks */,
 				6E67170F1BEB109E00E9C5D8 /* Catalog */,
 				6E6717241BEB109E00E9C5D8 /* CatalogUITests */,
 				6E67170E1BEB109E00E9C5D8 /* Products */,
@@ -77,6 +104,7 @@
 		6E67170F1BEB109E00E9C5D8 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				6EFC75D41BF58828002A4822 /* Catalog.entitlements */,
 				6E6717101BEB109E00E9C5D8 /* AppDelegate.swift */,
 				6E6717121BEB109E00E9C5D8 /* ViewController.swift */,
 				6E6717141BEB109E00E9C5D8 /* Main.storyboard */,
@@ -94,6 +122,25 @@
 				6E6717271BEB109E00E9C5D8 /* Info.plist */,
 			);
 			path = CatalogUITests;
+			sourceTree = "<group>";
+		};
+		6EFC75D81BF58AA2002A4822 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EFC75DE1BF58AA2002A4822 /* CoreCatalog.framework */,
+				6EFC75E01BF58AA2002A4822 /* CoreCatalogTests.xctest */,
+				6EFC75E21BF58AA2002A4822 /* CoreCatalog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6EFC75E31BF58AA6002A4822 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */,
+				6EFC75D51BF58835002A4822 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +193,12 @@
 				TargetAttributes = {
 					6E67170C1BEB109E00E9C5D8 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 4W79SG34MW;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					6E6717201BEB109E00E9C5D8 = {
 						CreatedOnToolsVersion = 7.1;
@@ -164,6 +217,12 @@
 			mainGroup = 6E6717041BEB109E00E9C5D8;
 			productRefGroup = 6E67170E1BEB109E00E9C5D8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6EFC75D81BF58AA2002A4822 /* Products */;
+					ProjectRef = 6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6E67170C1BEB109E00E9C5D8 /* Catalog */,
@@ -171,6 +230,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6EFC75DE1BF58AA2002A4822 /* CoreCatalog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoreCatalog.framework;
+			remoteRef = 6EFC75DD1BF58AA2002A4822 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6EFC75E01BF58AA2002A4822 /* CoreCatalogTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreCatalogTests.xctest;
+			remoteRef = 6EFC75DF1BF58AA2002A4822 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6EFC75E21BF58AA2002A4822 /* CoreCatalog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoreCatalog.framework;
+			remoteRef = 6EFC75E11BF58AA2002A4822 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6E67170B1BEB109E00E9C5D8 /* Resources */ = {
@@ -327,10 +410,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Catalog/Catalog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Catalog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.Catalog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -338,10 +425,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Catalog/Catalog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Catalog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colemancda.Catalog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

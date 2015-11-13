@@ -8,7 +8,6 @@
 
 import SwiftFoundation
 
-/*
 public extension CoreCatalog.Model.Store {
     
     public struct Validate {
@@ -27,4 +26,4 @@ public extension CoreCatalog.Model.Store {
             return emailRegex.match(value)?.range.count == value.utf8.count
         }
     }
-}*/
+}
