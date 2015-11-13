@@ -9,7 +9,7 @@
 import SwiftFoundation
 import CoreModel
 import NetworkObjects
-import CoreCerradura
+import CoreCatalog
 
 public final class ServerManager: ServerDataSource, ServerDelegate {
     
@@ -37,6 +37,8 @@ public final class ServerManager: ServerDataSource, ServerDelegate {
     }
     
     public func server<T : ServerType>(server: T, performFunction functionName: String, forResource resource: Resource, recievedJSON: JSONObject?, context: Server.RequestContext) -> (Int, JSONObject?) {
+        
+        return (HTTP.StatusCode.OK.rawValue, nil)
     }
     
     // MARK: - ServerDelegate
@@ -50,10 +52,10 @@ public final class ServerManager: ServerDataSource, ServerDelegate {
             let authenticatedUser: Resource
             
             do {
-                guard let resource = try AuthenticateWithHeader(RequestHeader.Authorization.rawValue, identifierHeader: RequestHeader.User.rawValue,
-                    identifierKey: CoreCerradura.Model.User.Attribute.Username.name,
-                    secretKey: CoreCerradura.Model.User.Attribute.Password.name,
-                    entityName: CoreCerradura.Model.User.entityName,
+                guard let resource = try AuthenticateWithHeader(RequestHeader.Authorization.rawValue, identifierHeader: RequestHeader.Store.rawValue,
+                    identifierKey: Model.Store.Attribute.Username.name,
+                    secretKey: Model.Password.Attribute.Password.name,
+                    entityName: Model.Store.entityName,
                     context: context)
                     
                 else { return HTTP.StatusCode.Unauthorized.rawValue }

@@ -14,6 +14,7 @@ import NetworkObjects
 import CoreCatalog
 import RoutingHTTPServer
 
+/*
 @objc public final class Server: NSObject {
     
     public static func startServer() {
@@ -24,7 +25,7 @@ import RoutingHTTPServer
         
         print("Started server on port \(HTTPServer.port())")
     }
-}
+}*/
 
 public func StoreForRequest(request: RequestMessage) -> CoreModel.Store {
     
@@ -36,7 +37,7 @@ public func StoreForRequest(request: RequestMessage) -> CoreModel.Store {
     // setup persistent store coordinator
     managedObjectContext.persistentStoreCoordinator = PersistentStoreCoordinator
     
-    guard let store = CoreDataStore(model: Model.entities, managedObjectContext: managedObjectContext, resourceIDAttributeName: CoreCerradura.CoreDataResourceIDAttributeName)
+    guard let store = CoreDataStore(model: Model.entities, managedObjectContext: managedObjectContext, resourceIDAttributeName: CoreDataResourceIDAttributeName)
         else { fatalError("Could not create Store for request: \(request)") }
     
     return store
@@ -44,10 +45,10 @@ public func StoreForRequest(request: RequestMessage) -> CoreModel.Store {
 
 public let PersistentStoreCoordinator: NSPersistentStoreCoordinator = {
     
-    let managedObjectModel = CoreCerradura.ManagedObjectModel()
+    let managedObjectModel = ManagedObjectModel()
     
     // add resource ID attribute
-    managedObjectModel.addResourceIDAttribute(CoreCerradura.CoreDataResourceIDAttributeName)
+    managedObjectModel.addResourceIDAttribute(CoreDataResourceIDAttributeName)
     
     let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
     

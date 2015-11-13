@@ -11,4 +11,5 @@ public enum RequestHeader: String {
     
     case Date = "Date"
     case Authorization = "Authorization"
+    case Store = "x-catalog-store"
 }
