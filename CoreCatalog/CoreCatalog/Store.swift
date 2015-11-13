@@ -6,46 +6,54 @@
 //  Copyright © 2015 ColemanCDA. All rights reserved.
 //
 
-import Foundation
-import CoreData
+import CoreLocation
+import CloudKit
+import CoreDataStruct
 
-public final class Store: NSManagedObject {
+public struct Store: CoreDataEncodable, CoreDataDecodable {
+    
+    public let identifier: Identifier
     
     // MARK: - Attributes
     
-    // Info
+    // MARK: Info
     
-    @NSManaged public private(set) var name: String
+    public var name: String
     
-    @NSManaged public private(set) var text: String
+    public var text: String
     
-    @NSManaged public private(set) var phoneNumber: String
+    public var phoneNumber: String
     
-    // Address
+    public var email: String
     
-    @NSManaged public private(set) var country: String
+    // MARK: Address
     
-    @NSManaged public private(set) var state: String
+    public var country: String
     
-    @NSManaged public private(set) var city: String
+    public var state: String
     
-    @NSManaged public private(set) var district: String
+    public var city: String
     
-    @NSManaged public private(set) var street: String
+    public var district: String
     
-    @NSManaged public private(set) var officeNumber: String
+    public var street: String
     
-    @NSManaged public private(set) var directionsNote: String
+    public var officeNumber: String
     
-    // Credentials
+    public var directionsNote: String
     
-    @NSManaged public private(set) var email: String
-    
-    @NSManaged public private(set) var password: String
+    public var location: Location
     
     // MARK: - Relationships
     
-    @NSManaged public private(set) var image: Image
-    
-    @NSManaged public private(set) var listings: Set<Listing>?
+    public var image: Identifier
 }
+
+// MARK: - CloudKit
+
+public extension Store {
+    
+    static func
+}
+
+

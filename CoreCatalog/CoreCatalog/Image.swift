@@ -2,18 +2,17 @@
 //  Image.swift
 //  CoreCatalog
 //
-//  Created by Alsey Coleman Miller on 11/3/15.
+//  Created by Alsey Coleman Miller on 11/12/15.
 //  Copyright © 2015 ColemanCDA. All rights reserved.
 //
 
-import Foundation
-import CoreData
+import SwiftFoundation
 
-public final class Image: NSManagedObject {
+public struct Image {
     
-    @NSManaged public private(set) var data: NSData
+    public let identifier: Identifier
     
-    @NSManaged public private(set) var product: Product?
+    // MARK: - Attributes
     
-    @NSManaged public private(set) var store: Store?
+    public var data: Data
 }

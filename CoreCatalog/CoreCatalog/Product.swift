@@ -9,13 +9,13 @@
 import Foundation
 import CoreData
 
-public final class Product: NSManagedObject {
+public struct Product {
     
-    @NSManaged public private(set) var name: String
+    public let identifier: Identifier
     
-    @NSManaged public private(set) var productIdentifier: String
+    public var name: String
     
-    @NSManaged public private(set) var image: Image
+    public var productIdentifier: String
     
-    @NSManaged public private(set) var listings: Set<Listing>?
+    public var image: Identifier
 }
