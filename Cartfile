@@ -1,5 +1,4 @@
 github "PureSwift/SwiftFoundation" "develop"
-github "ColemanCDA/NetworkObjects" "develop"
-github "ColemanCDA/RoutingHTTPServer" "develop"
-github "PureSwift/OpenSSL" "master"
+github "ColemanCDA/CoreDataStruct" "develop"
+github "ColemanCDA/CloudKitStruct" "develop"
 github "JonasGessner/JGProgressHUD" "master"
