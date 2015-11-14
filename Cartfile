@@ -1,4 +1,2 @@
 github "PureSwift/SwiftFoundation" "develop"
-github "ColemanCDA/CoreDataStruct" "develop"
-github "ColemanCDA/CloudKitStruct" "develop"
 github "JonasGessner/JGProgressHUD" "master"

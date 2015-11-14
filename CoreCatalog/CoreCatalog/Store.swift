@@ -8,9 +8,9 @@
 
 import CoreLocation
 import CloudKit
-import CoreDataStruct
+import CoreData
 
-public struct Store: CoreDataEncodable, CoreDataDecodable {
+public struct Store {
     
     public let identifier: Identifier
     
@@ -47,13 +47,6 @@ public struct Store: CoreDataEncodable, CoreDataDecodable {
     // MARK: - Relationships
     
     public var image: Identifier
-}
-
-// MARK: - CloudKit
-
-public extension Store {
-    
-    static func
 }
 
 
