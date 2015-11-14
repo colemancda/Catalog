@@ -147,6 +147,8 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
+        self.didSearch = true
+        
         searchBar.endEditing(true)
         
         let progressHUD = JGProgressHUD(style: .Dark)

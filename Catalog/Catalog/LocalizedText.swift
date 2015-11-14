@@ -30,11 +30,11 @@ extension LocalizedText {
     
     static let Store = LocalizedText(value: "Store", identifier: "Store")
     
-    static let EmptyProductsResult = LocalizedText(value: "No products were found.", identifier: "EmptyProductsResult")
+    static let EmptyProductsResult = LocalizedText(value: "No products were found", identifier: "EmptyProductsResult")
     
     static let EmptyProductSearch = LocalizedText(value: "Search for a product", identifier: "EmptyProductSearch")
     
-    static let EmptyStoreResult = LocalizedText(value: "No stores were found.", identifier: "EmptyStoreResult")
+    static let EmptyStoreResult = LocalizedText(value: "No stores were found", identifier: "EmptyStoreResult")
     
     static let EmptyStoreSearch = LocalizedText(value: "Search for a store", identifier: "EmptyStoreSearch")
     
