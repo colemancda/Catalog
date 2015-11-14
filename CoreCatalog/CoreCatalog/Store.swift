@@ -8,9 +8,10 @@
 
 import CoreLocation
 import CloudKit
-import CoreData
 
 public struct Store {
+    
+    public static let recordType = "Store"
     
     public let identifier: Identifier
     
@@ -42,7 +43,7 @@ public struct Store {
     
     public var directionsNote: String
     
-    public var location: Location
+    public var location: Location?
     
     // MARK: - Relationships
     

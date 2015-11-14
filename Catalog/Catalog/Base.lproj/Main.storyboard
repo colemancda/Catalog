@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="mnc-e1-2uF">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a Product" id="mnc-e1-2uF">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <animations/>
@@ -28,7 +28,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="NdA-Zw-yLe" customClass="ProductCell" customModule="Catalog" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="82" id="NdA-Zw-yLe" customClass="ProductCell" customModule="Catalog" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="600" height="82"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NdA-Zw-yLe" id="jM4-Pa-XyC">
@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="PaV-sW-hot">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a Store" id="PaV-sW-hot">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <animations/>
@@ -766,7 +766,7 @@ Lima</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="xNK-0h-VX3"/>
         <segue reference="bN3-Kk-ph1"/>
-        <segue reference="BA0-iL-9Tu"/>
     </inferredMetricsTieBreakers>
 </document>

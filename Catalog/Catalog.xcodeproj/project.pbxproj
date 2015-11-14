@@ -397,17 +397,17 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/JGProgressHUD.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftFoundation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/b64.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/JGProgressHUD.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/SwiftFoundation.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/JSON.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/b64.framework",
 			);
 			name = "Copy Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "cd ../\n/usr/local/bin/carthage copy-frameworks";
 		};
 		6EF660F11BF71DDE00BACE52 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -18,6 +18,14 @@ public struct Identifier {
     }
 }
 
+public extension Identifier {
+    
+    func toRecordID() -> CKRecordID {
+        
+        return CKRecordID(recordName: value)
+    }
+}
+
 public extension CKRecordID {
     
     func toIdentifier() -> Identifier {
