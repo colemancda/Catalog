@@ -41,6 +41,7 @@
 		6EF6610C1BF71F8C00BACE52 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6610B1BF71F8C00BACE52 /* R.generated.swift */; };
 		6EF661111BF72B9A00BACE52 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF661101BF72B9A00BACE52 /* ErrorAlert.swift */; };
 		6EF661141BF7301E00BACE52 /* StoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF661121BF72DEF00BACE52 /* StoresViewController.swift */; };
+		6EF661161BF79A1C00BACE52 /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF661151BF79A1C00BACE52 /* LocalizedText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		6EF6610B1BF71F8C00BACE52 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		6EF661101BF72B9A00BACE52 /* ErrorAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		6EF661121BF72DEF00BACE52 /* StoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresViewController.swift; sourceTree = "<group>"; };
+		6EF661151BF79A1C00BACE52 /* LocalizedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
 		6EFC75D41BF58828002A4822 /* Catalog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Catalog.entitlements; sourceTree = "<group>"; };
 		6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreCatalog.xcodeproj; path = ../CoreCatalog/CoreCatalog.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +207,7 @@
 				6EF6610B1BF71F8C00BACE52 /* R.generated.swift */,
 				6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */,
 				6EF661121BF72DEF00BACE52 /* StoresViewController.swift */,
+				6EF661151BF79A1C00BACE52 /* LocalizedText.swift */,
 				6E67171C1BEB109E00E9C5D8 /* Info.plist */,
 			);
 			path = Catalog;
@@ -435,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF661161BF79A1C00BACE52 /* LocalizedText.swift in Sources */,
 				6EF660E01BF71AB900BACE52 /* ProductsViewController.swift in Sources */,
 				6EF661141BF7301E00BACE52 /* StoresViewController.swift in Sources */,
 				6EF661111BF72B9A00BACE52 /* ErrorAlert.swift in Sources */,

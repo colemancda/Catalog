@@ -36,16 +36,33 @@ final class StoresViewController: UITableViewController {
         
         let record = stores[indexPath.row]
         
-        /*
-        guard let product = Store(record: record) else { fatalError("Couldn't parse data") }
+        guard let store = Store(record: record) else { fatalError("Couldn't parse data") }
         
-        cell.productNameLabel.text = product.name
+        cell.storeNameLabel.text = store.name
         
-        cell.productIdentifierLabel.text = product.productIdentifier
+        var addressText = store.street + ", " + store.district + ", " + store.city + ", " + store.state + ", " + store.country
         
-        cell.productImageActivityIndicator.hidden = false
+        if let storeNumber = store.officeNumber {
+            
+            addressText += " - " + LocalizedText.Store.localizedString + " " + storeNumber
+        }
         
-        cell.productImageActivityIndicator.startAnimating()*/
+        if let image = store.image {
+            
+            cell.storeImageActivityIndicator.hidden = false
+            
+            cell.storeImageActivityIndicator.startAnimating()
+            
+            // load image
+        }
+        else {
+            
+            cell.storeImageActivityIndicator.stopAnimating()
+            
+            cell.storeImageActivityIndicator.hidden = true
+            
+            cell.storeImageView.image = R.image.storeImage!
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -116,7 +133,7 @@ final class StoreCell: UITableViewCell {
     
     @IBOutlet weak var storeAddressLabel: UILabel!
     
-    @IBOutlet weak var productImageActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var storeImageActivityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var storeImageView: UIImageView!
 }
