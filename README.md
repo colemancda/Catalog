@@ -1,2 +1,2 @@
-# CompuPeru
-CompuPeru App and Server
+# Catalog
+Catalog App
