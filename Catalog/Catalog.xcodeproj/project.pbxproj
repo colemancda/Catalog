@@ -29,6 +29,7 @@
 		6E67171B1BEB109E00E9C5D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6717191BEB109E00E9C5D8 /* LaunchScreen.storyboard */; };
 		6E6717261BEB109E00E9C5D8 /* CatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6717251BEB109E00E9C5D8 /* CatalogUITests.swift */; };
 		6EA6CAAE1BF7DBE700735B79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */; };
+		6EA6CAB01BF7E30100735B79 /* ProductListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6CAAF1BF7E30100735B79 /* ProductListingsViewController.swift */; };
 		6EF660E01BF71AB900BACE52 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */; };
 		6EF660E71BF71D8000BACE52 /* b64.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6EF660E31BF71D8000BACE52 /* b64.framework.dSYM */; };
 		6EF660E81BF71D8000BACE52 /* JGProgressHUD.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6EF660E41BF71D8000BACE52 /* JGProgressHUD.framework.dSYM */; };
@@ -140,6 +141,7 @@
 		6E6717251BEB109E00E9C5D8 /* CatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogUITests.swift; sourceTree = "<group>"; };
 		6E6717271BEB109E00E9C5D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6EA6CAAF1BF7E30100735B79 /* ProductListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListingsViewController.swift; sourceTree = "<group>"; };
 		6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		6EF660E31BF71D8000BACE52 /* b64.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = b64.framework.dSYM; path = ../Carthage/Build/iOS/b64.framework.dSYM; sourceTree = "<group>"; };
 		6EF660E41BF71D8000BACE52 /* JGProgressHUD.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JGProgressHUD.framework.dSYM; path = ../Carthage/Build/iOS/JGProgressHUD.framework.dSYM; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				6EF661151BF79A1C00BACE52 /* LocalizedText.swift */,
 				6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */,
 				6EF661121BF72DEF00BACE52 /* StoresViewController.swift */,
+				6EA6CAAF1BF7E30100735B79 /* ProductListingsViewController.swift */,
 				6E67171C1BEB109E00E9C5D8 /* Info.plist */,
 			);
 			path = Catalog;
@@ -452,6 +455,7 @@
 				6EF661161BF79A1C00BACE52 /* LocalizedText.swift in Sources */,
 				6EF660E01BF71AB900BACE52 /* ProductsViewController.swift in Sources */,
 				6EF661141BF7301E00BACE52 /* StoresViewController.swift in Sources */,
+				6EA6CAB01BF7E30100735B79 /* ProductListingsViewController.swift in Sources */,
 				6EF661111BF72B9A00BACE52 /* ErrorAlert.swift in Sources */,
 				6E6717111BEB109E00E9C5D8 /* AppDelegate.swift in Sources */,
 				6E3EDC4D1BF7CC6300900939 /* EmptyView.swift in Sources */,

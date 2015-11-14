@@ -10,9 +10,11 @@ import SwiftFoundation
 
 public struct Image {
     
+    public static let recordType = "Image"
+    
     public let identifier: Identifier
     
     // MARK: - Attributes
     
-    public var data: Data
+    public var image: Data
 }

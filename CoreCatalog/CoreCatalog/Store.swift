@@ -96,6 +96,11 @@ public extension Store {
             
             self.image = imageReference.recordID.toIdentifier()
         }
+        
+        if let location = record[CloudKitField.location.rawValue] as? CLLocation {
+            
+            self.location = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        }
     }
 }
 

@@ -38,6 +38,8 @@ extension LocalizedText {
     
     static let EmptyStoreSearch = LocalizedText(value: "Search for a store", identifier: "EmptyStoreSearch")
     
+    static let EmptyProductListings = LocalizedText(value: "No stores are selling this product", identifier: "EmptyProductListings")
+    
     static let Email = LocalizedText(value: "Email", identifier: "Email")
     
     static let Success = LocalizedText(value: "Success", identifier: "Success")

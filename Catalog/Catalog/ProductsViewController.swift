@@ -41,7 +41,7 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
         
         emptyView.label.text = LocalizedText.EmptyProductsResult.localizedString
         
-        emptyView.emptyImageView.image = R.image.emptyStores!
+        emptyView.emptyImageView.image = R.image.emptyProduct!
         
         return emptyView
     }()
@@ -182,6 +182,24 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
                 
                 controller.updateEmptyView()
             }
+        }
+    }
+    
+    // MARK: - Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch segue.identifier! {
+            
+        case R.segue.showProductListings:
+            
+            let selectedProduct = products[tableView.indexPathForSelectedRow!.row]
+            
+            let destinationVC = segue.destinationViewController as! ProductListingsViewController
+            
+            destinationVC.product = selectedProduct
+            
+        default: fatalError("Segue not handled: \(segue.identifier!)")
         }
     }
 }
