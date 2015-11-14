@@ -17,6 +17,32 @@ final class StoresViewController: UITableViewController {
     // MARK: - Properties
     
     private(set) var stores = [CKRecord]()
+    
+    private(set) var didSearch = false
+    
+    // MARK: Views
+    
+    lazy var emptySearchView: EmptyView = {
+        
+        let emptyView = EmptyView.fromNib()
+        
+        emptyView.label.text = LocalizedText.EmptyProductSearch.localizedString
+        
+        emptyView.emptyImageView.image = R.image.storeImage!
+        
+        return emptyView
+    }()
+    
+    lazy var emptyResultsView: EmptyView = {
+        
+        let emptyView = EmptyView.fromNib()
+        
+        emptyView.label.text = LocalizedText.EmptyProductsResult.localizedString
+        
+        emptyView.emptyImageView.image = R.image.storeImage!
+        
+        return emptyView
+    }()
 
     // MARK: - Loading
     
@@ -25,7 +51,7 @@ final class StoresViewController: UITableViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        self.updateFooter()
     }
     
     // MARK: - Actions
@@ -47,6 +73,8 @@ final class StoresViewController: UITableViewController {
             addressText += " - " + LocalizedText.Store.localizedString + " " + storeNumber
         }
         
+        cell.storeAddressLabel.text = addressText
+        
         if let image = store.image {
             
             cell.storeImageActivityIndicator.hidden = false
@@ -54,6 +82,14 @@ final class StoresViewController: UITableViewController {
             cell.storeImageActivityIndicator.startAnimating()
             
             // load image
+            
+            CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(image.toRecordID(), completionHandler: { [weak cell] (record, error) in
+                
+                guard let cell = cell else { return }
+                
+                
+                
+            })
         }
         else {
             
@@ -63,6 +99,34 @@ final class StoresViewController: UITableViewController {
             
             cell.storeImageView.image = R.image.storeImage!
         }
+    }
+    
+    func updateFooter() {
+        
+        // empty results view
+        if stores.count == 0 {
+            
+            if self.didSearch {
+                
+                tableView.tableFooterView = emptyResultsView
+            }
+            else {
+                
+                tableView.tableFooterView = emptySearchView
+            }
+            
+            tableView.scrollEnabled = false
+            
+            tableView.tableFooterView?.frame = tableView.frame
+        }
+        else {
+            
+            tableView.scrollEnabled = true
+            
+            tableView.tableFooterView = nil
+        }
+        
+        self.tableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource
