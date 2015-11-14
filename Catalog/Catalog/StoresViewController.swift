@@ -1,5 +1,5 @@
 //
-//  ProductsViewController.swift
+//  StoresViewController.swift
 //  Catalog
 //
 //  Created by Alsey Coleman Miller on 11/14/15.
@@ -12,14 +12,12 @@ import CloudKit
 import CoreCatalog
 import JGProgressHUD
 
-final class ProductsViewController: UITableViewController, UISearchBarDelegate {
-    
-    // MARK: - IB Outlets
+final class StoresViewController: UITableViewController {
     
     // MARK: - Properties
     
-    private(set) var products = [CKRecord]()
-    
+    private(set) var stores = [CKRecord]()
+
     // MARK: - Loading
     
     override func viewDidLoad() {
@@ -34,34 +32,20 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Methods
     
-    func configureCell(cell: ProductCell, atIndexPath indexPath: NSIndexPath) {
+    func configureCell(cell: StoreCell, atIndexPath indexPath: NSIndexPath) {
         
-        let record = products[indexPath.row]
+        let record = stores[indexPath.row]
         
-        guard let product = Product(record: record) else { fatalError("Couldn't parse data") }
+        /*
+        guard let product = Store(record: record) else { fatalError("Couldn't parse data") }
         
         cell.productNameLabel.text = product.name
         
-        cell.productIdentifierLabel.text = product.identifier.value
+        cell.productIdentifierLabel.text = product.productIdentifier
         
-        if let image = product.image {
-            
-            cell.productImageActivityIndicator.hidden = false
-            
-            cell.productImageActivityIndicator.startAnimating()
-            
-            // load image
-        }
-        else {
-            
-            cell.productImageActivityIndicator.stopAnimating()
-            
-            cell.productImageActivityIndicator.hidden = true
-            
-            cell.productImageView.image = R.image.storeImage!
-        }
+        cell.productImageActivityIndicator.hidden = false
         
-        
+        cell.productImageActivityIndicator.startAnimating()*/
     }
     
     // MARK: - UITableViewDataSource
@@ -73,12 +57,12 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return products.count
+        return stores.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(R.reuseIdentifier.productCell, forIndexPath: indexPath)!
+        let cell = tableView.dequeueReusableCellWithIdentifier(R.reuseIdentifier.storeCell, forIndexPath: indexPath)!
         
         self.configureCell(cell, atIndexPath: indexPath)
         
@@ -99,7 +83,7 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
         
         let predicate = NSPredicate(format: "name BEGINSWITH %@", text)
         
-        let query = CKQuery(recordType: Product.recordType, predicate: predicate)
+        let query = CKQuery(recordType: Store.recordType, predicate: predicate)
         
         CKContainer.defaultContainer().publicCloudDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
             
@@ -116,7 +100,7 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
                     return
                 }
                 
-                controller.products = results!
+                controller.stores = results!
                 
                 controller.tableView.reloadData()
             }
@@ -126,14 +110,13 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
 
 // MARK: - Supporting Types
 
-final class ProductCell: UITableViewCell {
+final class StoreCell: UITableViewCell {
     
-    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var storeNameLabel: UILabel!
     
-    @IBOutlet weak var productIdentifierLabel: UILabel!
+    @IBOutlet weak var storeAddressLabel: UILabel!
     
     @IBOutlet weak var productImageActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var productImageView: UIImageView!
 }
-

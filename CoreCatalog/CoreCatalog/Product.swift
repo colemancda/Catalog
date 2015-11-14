@@ -17,9 +17,7 @@ public struct Product: CloudKitDecodable {
     
     public var name: String
     
-    public var productIdentifier: String
-    
-    public var image: Identifier
+    public var image: Identifier?
 }
 
 // MARK: - CloudKit
@@ -28,21 +26,23 @@ public extension Product {
     
     public enum CloudKitField: String {
         
-        case name, productIdentifier, image
+        case name, image
     }
     
     init?(record: CKRecord) {
         
         guard record.recordType == Product.recordType,
-            let name = record[CloudKitField.name.rawValue] as? String,
-            let productIdentifier = record[CloudKitField.productIdentifier.rawValue] as? String,
-            let imageReference = record[CloudKitField.image.rawValue] as? CKReference
+            let name = record[CloudKitField.name.rawValue] as? String
         else { return nil }
         
         self.identifier = record.recordID.toIdentifier()
         self.name = name
-        self.productIdentifier = productIdentifier
-        self.image = imageReference.recordID.toIdentifier()
+        
+        if let imageReference = record[CloudKitField.image.rawValue] as? CKReference {
+            
+            self.image = imageReference.recordID.toIdentifier()
+        }
+        
     }
 }
 

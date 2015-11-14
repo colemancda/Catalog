@@ -39,7 +39,7 @@ public struct Store {
     
     public var street: String
     
-    public var officeNumber: String
+    public var officeNumber: String?
     
     public var directionsNote: String
     
@@ -47,7 +47,7 @@ public struct Store {
     
     // MARK: - Relationships
     
-    public var image: Identifier
+    public var image: Identifier?
 }
 
 
