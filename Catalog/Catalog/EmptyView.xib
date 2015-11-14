@@ -9,20 +9,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EmptyView" customModule="Catalog" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="421"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SR5-y0-0ba">
-                    <rect key="frame" x="52" y="155.5" width="216" height="256.5"/>
+                    <rect key="frame" x="52" y="83" width="216" height="256"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5i-Nb-W29">
-                            <rect key="frame" x="63.5" y="228" width="89" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5i-Nb-W29">
+                            <rect key="frame" x="81" y="228" width="53.5" height="20.5"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3x-dp-wFo">
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptySearch" translatesAutoresizingMaskIntoConstraints="NO" id="b3x-dp-wFo">
                             <rect key="frame" x="8" y="8" width="200" height="200"/>
                             <animations/>
                             <constraints>
@@ -49,11 +49,15 @@
                 <constraint firstItem="SR5-y0-0ba" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4NL-XJ-z9p"/>
                 <constraint firstItem="SR5-y0-0ba" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bcn-rv-t2b"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="emptyImageView" destination="b3x-dp-wFo" id="Znx-IN-2pn"/>
                 <outlet property="label" destination="X5i-Nb-W29" id="9hr-VY-bhr"/>
             </connections>
-            <point key="canvasLocation" x="353" y="305"/>
+            <point key="canvasLocation" x="353" y="231.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="EmptySearch" width="180" height="186"/>
+    </resources>
 </document>

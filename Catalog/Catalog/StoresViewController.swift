@@ -26,9 +26,9 @@ final class StoresViewController: UITableViewController {
         
         let emptyView = EmptyView.fromNib()
         
-        emptyView.label.text = LocalizedText.EmptyProductSearch.localizedString
+        emptyView.label.text = LocalizedText.EmptyStoreSearch.localizedString
         
-        emptyView.emptyImageView.image = R.image.storeImage!
+        emptyView.emptyImageView.image = R.image.emptySearch!
         
         return emptyView
     }()
@@ -37,9 +37,9 @@ final class StoresViewController: UITableViewController {
         
         let emptyView = EmptyView.fromNib()
         
-        emptyView.label.text = LocalizedText.EmptyProductsResult.localizedString
+        emptyView.label.text = LocalizedText.EmptyStoreResult.localizedString
         
-        emptyView.emptyImageView.image = R.image.storeImage!
+        emptyView.emptyImageView.image = R.image.emptyStores!
         
         return emptyView
     }()
@@ -51,7 +51,7 @@ final class StoresViewController: UITableViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.updateFooter()
+        self.updateEmptyView()
     }
     
     // MARK: - Actions
@@ -101,32 +101,36 @@ final class StoresViewController: UITableViewController {
         }
     }
     
-    func updateFooter() {
+    func updateEmptyView() {
         
         // empty results view
         if stores.count == 0 {
             
+            let emptyView: EmptyView
+            
             if self.didSearch {
                 
-                tableView.tableFooterView = emptyResultsView
+                emptyView = emptyResultsView
             }
             else {
                 
-                tableView.tableFooterView = emptySearchView
+                emptyView = emptySearchView
             }
             
             tableView.scrollEnabled = false
             
-            tableView.tableFooterView?.frame = tableView.frame
+            tableView.backgroundView = emptyView
+            
+            tableView.tableFooterView = UIView()
         }
         else {
             
             tableView.scrollEnabled = true
             
             tableView.tableFooterView = nil
+            
+            tableView.backgroundView = nil
         }
-        
-        self.tableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource
@@ -153,6 +157,8 @@ final class StoresViewController: UITableViewController {
     // MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        self.didSearch = true
         
         searchBar.endEditing(true)
         
@@ -184,6 +190,8 @@ final class StoresViewController: UITableViewController {
                 controller.stores = results!
                 
                 controller.tableView.reloadData()
+                
+                controller.updateEmptyView()
             }
         }
     }

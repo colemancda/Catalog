@@ -28,6 +28,7 @@
 		6E6717181BEB109E00E9C5D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6717171BEB109E00E9C5D8 /* Assets.xcassets */; };
 		6E67171B1BEB109E00E9C5D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6717191BEB109E00E9C5D8 /* LaunchScreen.storyboard */; };
 		6E6717261BEB109E00E9C5D8 /* CatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6717251BEB109E00E9C5D8 /* CatalogUITests.swift */; };
+		6EA6CAAE1BF7DBE700735B79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */; };
 		6EF660E01BF71AB900BACE52 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */; };
 		6EF660E71BF71D8000BACE52 /* b64.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6EF660E31BF71D8000BACE52 /* b64.framework.dSYM */; };
 		6EF660E81BF71D8000BACE52 /* JGProgressHUD.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6EF660E41BF71D8000BACE52 /* JGProgressHUD.framework.dSYM */; };
@@ -138,6 +139,7 @@
 		6E6717211BEB109E00E9C5D8 /* CatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6717251BEB109E00E9C5D8 /* CatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogUITests.swift; sourceTree = "<group>"; };
 		6E6717271BEB109E00E9C5D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		6EF660E31BF71D8000BACE52 /* b64.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = b64.framework.dSYM; path = ../Carthage/Build/iOS/b64.framework.dSYM; sourceTree = "<group>"; };
 		6EF660E41BF71D8000BACE52 /* JGProgressHUD.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JGProgressHUD.framework.dSYM; path = ../Carthage/Build/iOS/JGProgressHUD.framework.dSYM; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EA6CAAE1BF7DBE700735B79 /* MapKit.framework in Frameworks */,
 				6EF660FD1BF71E8000BACE52 /* JSON.framework in Frameworks */,
 				6EF660FB1BF71E8000BACE52 /* b64.framework in Frameworks */,
 				6EF661001BF71EA000BACE52 /* CloudKit.framework in Frameworks */,
@@ -254,6 +257,7 @@
 			children = (
 				6EF660EB1BF71D8500BACE52 /* DYSM */,
 				6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */,
+				6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */,
 				6EF660FF1BF71EA000BACE52 /* CloudKit.framework */,
 				6EF660F71BF71E8000BACE52 /* b64.framework */,
 				6EF660F81BF71E8000BACE52 /* JGProgressHUD.framework */,

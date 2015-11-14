@@ -20,6 +20,32 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
     
     private(set) var products = [CKRecord]()
     
+    private(set) var didSearch = false
+    
+    // MARK: Views
+    
+    lazy var emptySearchView: EmptyView = {
+        
+        let emptyView = EmptyView.fromNib()
+        
+        emptyView.label.text = LocalizedText.EmptyProductSearch.localizedString
+        
+        emptyView.emptyImageView.image = R.image.emptySearch!
+        
+        return emptyView
+    }()
+    
+    lazy var emptyResultsView: EmptyView = {
+        
+        let emptyView = EmptyView.fromNib()
+        
+        emptyView.label.text = LocalizedText.EmptyProductsResult.localizedString
+        
+        emptyView.emptyImageView.image = R.image.emptyStores!
+        
+        return emptyView
+    }()
+    
     // MARK: - Loading
     
     override func viewDidLoad() {
@@ -27,7 +53,7 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        self.updateEmptyView()
     }
     
     // MARK: - Actions
@@ -62,6 +88,38 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
         }
         
         
+    }
+    
+    func updateEmptyView() {
+        
+        // empty results view
+        if products.count == 0 {
+            
+            let emptyView: EmptyView
+            
+            if self.didSearch {
+                
+                emptyView = emptyResultsView
+            }
+            else {
+                
+                emptyView = emptySearchView
+            }
+            
+            tableView.scrollEnabled = false
+            
+            tableView.backgroundView = emptyView
+            
+            tableView.tableFooterView = UIView()
+        }
+        else {
+            
+            tableView.scrollEnabled = true
+            
+            tableView.tableFooterView = nil
+            
+            tableView.backgroundView = nil
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -119,6 +177,8 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
                 controller.products = results!
                 
                 controller.tableView.reloadData()
+                
+                controller.updateEmptyView()
             }
         }
     }
