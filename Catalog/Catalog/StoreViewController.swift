@@ -60,7 +60,11 @@ final class StoreViewController: UITableViewController, MFMailComposeViewControl
         let locationManager = CLLocationManager()
         
         locationManager.delegate = self
+        
+        return locationManager
     }()
+    
+    private var annotation: MKPointAnnotation?
     
     // MARK: - Loading
     
@@ -69,10 +73,16 @@ final class StoreViewController: UITableViewController, MFMailComposeViewControl
         
         guard self.store != nil else { fatalError("Store must be set") }
         
+        locationManager.requestWhenInUseAuthorization()
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         // setup UI
         self.configureUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         didLoad = true
     }
@@ -103,7 +113,13 @@ final class StoreViewController: UITableViewController, MFMailComposeViewControl
         addressText += store.street + "\n"
         addressText += store.district + "\n"
         addressText += store.city + "\n"
-        addressText += store.state + "\n"
+        
+        // if city and state are the same, omit
+        if store.city != store.state {
+            
+            addressText += store.state + "\n"
+        }
+        
         addressText += store.country + "\n"
         
         self.addressCell.fieldValueLabel.text = addressText
@@ -141,9 +157,24 @@ final class StoreViewController: UITableViewController, MFMailComposeViewControl
     
     func setMapCoordinate(coordinate: CLLocationCoordinate2D) {
         
+        if let annotation = self.annotation {
+            
+            self.mapView.removeAnnotation(annotation)
+        }
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = coordinate
+        
+        annotation.title = store.name
+        
         let region = MKCoordinateRegion(center: coordinate, span: self.mapRegionSpan)
         
         self.mapView.setRegion(region, animated: didLoad)
+        
+        self.mapView.addAnnotation(annotation)
+        
+        self.annotation = annotation
     }
     
     func openPlacemarkInMaps(placemark: MKPlacemark) {
