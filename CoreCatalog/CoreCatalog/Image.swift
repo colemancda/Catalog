@@ -20,6 +20,13 @@ public struct Image: CloudKitDecodable {
     public var data: Data
 }
 
+// MARK: - Identity
+
+public func === (lhs: Store, rhs: Store) -> Bool {
+    
+    return lhs.identifier == rhs.identifier
+}
+
 // MARK: - CloudKit
 
 public extension Image {
@@ -41,3 +48,4 @@ public extension Image {
         self.data = data.arrayOfBytes()
     }
 }
+

@@ -70,6 +70,13 @@ public func == (lhs: Store, rhs: Store) -> Bool {
         lhs.image == rhs.image)
 }
 
+// MARK: - Identity
+
+public func === (lhs: Store, rhs: Store) -> Bool {
+    
+    return lhs.identifier == rhs.identifier
+}
+
 // MARK: - CloudKit
 
 public extension Store {

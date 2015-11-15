@@ -20,6 +20,13 @@ public struct Product: CloudKitDecodable {
     public var image: Identifier?
 }
 
+// MARK: - Identity
+
+public func === (lhs: Store, rhs: Store) -> Bool {
+    
+    return lhs.identifier == rhs.identifier
+}
+
 // MARK: - CloudKit
 
 public extension Product {
@@ -45,5 +52,7 @@ public extension Product {
         
     }
 }
+
+
 
 
