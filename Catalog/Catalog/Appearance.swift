@@ -13,5 +13,7 @@ func SetAppearance() {
     
     UINavigationBar.appearance().barTintColor = UIColor.redColor()
     
-    UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 }
