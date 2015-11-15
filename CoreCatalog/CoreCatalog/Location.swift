@@ -6,7 +6,10 @@
 //  Copyright © 2015 ColemanCDA. All rights reserved.
 //
 
-public struct Location: Equatable {
+import SwiftFoundation
+import CoreLocation
+
+public struct Location: Equatable, FoundationConvertible {
     
     public var latitude: Double
     
@@ -24,4 +27,20 @@ public struct Location: Equatable {
 public func == (lhs: Location, rhs: Location) -> Bool {
     
     return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+}
+
+// MARK: - CoreLocation
+
+public extension Location {
+    
+    init(foundation: CLLocationCoordinate2D) {
+        
+        self.latitude = foundation.latitude
+        self.longitude = foundation.longitude
+    }
+    
+    func toFoundation() -> CLLocationCoordinate2D {
+        
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }

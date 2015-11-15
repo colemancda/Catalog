@@ -57,5 +57,9 @@ extension LocalizedText {
     static let Error = LocalizedText(value: "Error", identifier: "Error")
     
     static let InvalidServerResponse = LocalizedText(value: "Invalid Server Response", identifier: "InvalidServerResponse")
+    
+    static let SetupEmailErrorDescription = LocalizedText(value: "Cannot send email. Setup your email account.", identifier: "SetupEmail")
+    
+    static let CouldNotOpenAddressWithMaps = LocalizedText(value: "Could not open address with Apple Maps.", identifier: "CouldNotOpenAddressWithMaps")
 }
 
