@@ -64,11 +64,11 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
             tableView.scrollEnabled = false
         }
         
-        let predicate = NSPredicate(format: "product == %@", product)
+        let predicate = NSPredicate(format: "%K == %@", Listing.CloudKitField.product.rawValue, product)
         
         let query = CKQuery(recordType: Listing.recordType, predicate: predicate)
         
-        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let priceSort = NSSortDescriptor(key: Listing.CloudKitField.price.rawValue, ascending: true)
         
         query.sortDescriptors = [priceSort]
         
@@ -115,33 +115,51 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
     
     func configureCell(cell: ListingStoreCell, atIndexPath indexPath: NSIndexPath) {
         
+        let results = self.results
+        
         let record = results[indexPath.row]
         
         guard let product = Listing(record: record) else { fatalError("Couldn't parse data") }
         
         cell.listingPriceLabel.text = product.priceString
         
-        // load store image
-        /*
+        cell.storeNameLabel.text = LocalizedText.Loading.localizedString
         
-        if let image = product.image {
+        cell.storeAddressLabel.text = ""
+        
+        // load store
+        
+        CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(product.store.toRecordID()) { (record, error) in
             
-            cell.storeImageView.image = nil
-            
-            cell.storeImageActivityIndicator.hidden = false
-            
-            cell.storeImageActivityIndicator.startAnimating()
-            
-            // load image
+            NSOperationQueue.mainQueue().addOperationWithBlock { [weak self] in
+                
+                guard let controller = self where controller.results == results  else { return }
+                
+                guard error == nil else {
+                    
+                    print("Couldn't load store. (\(error))")
+                    
+                    cell.storeNameLabel.text = LocalizedText.Error.localizedString
+                    
+                    cell.storeAddressLabel.text = ""
+                    
+                    return
+                }
+                
+                guard let store = Store(record: record!) else { fatalError("Couldn't parse data") }
+                
+                cell.storeNameLabel.text = store.name
+                
+                var addressText = store.street + ", " + store.district + ", " + store.city
+                
+                if let storeNumber = store.officeNumber {
+                    
+                    addressText += " - " + LocalizedText.Store.localizedString + " " + storeNumber
+                }
+                
+                cell.storeAddressLabel.text = addressText
+            }
         }
-        else {
-            
-            cell.storeImageActivityIndicator.stopAnimating()
-            
-            cell.storeImageActivityIndicator.hidden = true
-            
-            cell.storeImageView.image = R.image.storeImage!
-        }*/
     }
     
     func updateEmptyView() {

@@ -13,12 +13,12 @@
         <scene sceneID="slI-K7-6U6">
             <objects>
                 <tableViewController id="UTL-ub-9kg" customClass="ProductsViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" id="l2O-yz-9rR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="l2O-yz-9rR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="85" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a Product" id="mnc-e1-2uF">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -29,15 +29,15 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="87" id="NdA-Zw-yLe" customClass="ProductCell" customModule="Catalog" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="87"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="90" id="NdA-Zw-yLe" customClass="ProductCell" customModule="Catalog" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NdA-Zw-yLe" id="jM4-Pa-XyC">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="86.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProductPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="tV1-76-hL2">
-                                            <rect key="frame" x="8" y="8" width="70.5" height="70.5"/>
+                                            <rect key="frame" x="8" y="8" width="73.5" height="73.5"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="tV1-76-hL2" secondAttribute="height" multiplier="1:1" id="eWV-pk-ZD9"/>
@@ -50,19 +50,22 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BuP-Vc-GMf">
-                                            <rect key="frame" x="33.5" y="33.5" width="20" height="20"/>
+                                            <rect key="frame" x="35" y="35" width="20" height="20"/>
                                             <animations/>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuF-a9-6eN">
-                                            <rect key="frame" x="86.5" y="16" width="497.5" height="20.5"/>
+                                            <rect key="frame" x="89" y="16" width="494.5" height="29.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Product Identifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMe-GH-gYt">
-                                            <rect key="frame" x="86.5" y="44" width="497.5" height="26.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" text="Product Identifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMe-GH-gYt">
+                                            <rect key="frame" x="89" y="53" width="494.5" height="20"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Zch-Ef-MsM"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -152,7 +155,7 @@
         <scene sceneID="Vww-oB-4LP">
             <objects>
                 <tableViewController id="XCy-dt-tet" customClass="StoresViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" id="itn-LM-vxv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="itn-LM-vxv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -168,36 +171,42 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreCell" rowHeight="82" id="pLO-c9-JrP" customClass="StoreCell" customModule="Catalog" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="82"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreCell" rowHeight="90" id="pLO-c9-JrP" customClass="StoreCell" customModule="Catalog" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pLO-c9-JrP" id="Mhb-ql-APS">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="81.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oK3-Fu-7oZ">
-                                            <rect key="frame" x="16" y="8" width="66" height="66"/>
+                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProductPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="oK3-Fu-7oZ">
+                                            <rect key="frame" x="8" y="8" width="73.5" height="73.5"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="oK3-Fu-7oZ" secondAttribute="height" multiplier="1:1" id="aqJ-xn-EWx"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7Hk-bs-Y14">
-                                            <rect key="frame" x="39" y="31" width="20" height="20"/>
+                                            <rect key="frame" x="35" y="35" width="20" height="20"/>
                                             <animations/>
                                         </activityIndicatorView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN4-Nv-wRM">
-                                            <rect key="frame" x="98" y="16" width="486" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Store Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN4-Nv-wRM">
+                                            <rect key="frame" x="89" y="16" width="494.5" height="29"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lineas de Nasca 220, La Molina, Lima, Peru - Store 201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-i9-srz">
-                                            <rect key="frame" x="98" y="44" width="486" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Lineas de Nasca 220, La Molina, Lima, Peru - Store 201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-i9-srz">
+                                            <rect key="frame" x="89" y="53" width="494.5" height="20"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="6cg-rO-QdP"/>
+                                                <constraint firstAttribute="height" constant="20" id="SSC-kg-V8k"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,15 +219,15 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="oK3-Fu-7oZ" secondAttribute="bottom" id="3YI-6b-YRV"/>
                                         <constraint firstItem="oK3-Fu-7oZ" firstAttribute="top" secondItem="Mhb-ql-APS" secondAttribute="topMargin" id="3yk-fb-Vyg"/>
                                         <constraint firstAttribute="trailing" secondItem="GN4-Nv-wRM" secondAttribute="trailing" constant="16" id="Jh1-ce-Rb0"/>
-                                        <constraint firstItem="GN4-Nv-wRM" firstAttribute="leading" secondItem="oK3-Fu-7oZ" secondAttribute="trailing" constant="16" id="Jl5-Iv-Hm0"/>
+                                        <constraint firstItem="GN4-Nv-wRM" firstAttribute="leading" secondItem="oK3-Fu-7oZ" secondAttribute="trailing" constant="8" id="Jl5-Iv-Hm0"/>
                                         <constraint firstItem="GPu-i9-srz" firstAttribute="trailing" secondItem="GN4-Nv-wRM" secondAttribute="trailing" id="Mdb-Zc-GLC"/>
                                         <constraint firstItem="GN4-Nv-wRM" firstAttribute="top" secondItem="Mhb-ql-APS" secondAttribute="topMargin" constant="8" id="Oqa-Yg-W7V"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="GPu-i9-srz" secondAttribute="bottom" constant="8.5" id="ZfT-DG-mxw"/>
                                         <constraint firstItem="7Hk-bs-Y14" firstAttribute="centerY" secondItem="oK3-Fu-7oZ" secondAttribute="centerY" id="atc-Xf-WQX"/>
-                                        <constraint firstItem="GPu-i9-srz" firstAttribute="leading" secondItem="oK3-Fu-7oZ" secondAttribute="trailing" constant="16.5" id="h3t-Ib-DAz"/>
-                                        <constraint firstItem="GPu-i9-srz" firstAttribute="top" secondItem="GN4-Nv-wRM" secondAttribute="bottom" constant="7" id="jsu-hE-Zu1"/>
+                                        <constraint firstItem="GPu-i9-srz" firstAttribute="leading" secondItem="GN4-Nv-wRM" secondAttribute="leading" id="cM2-R7-GFF"/>
+                                        <constraint firstItem="GPu-i9-srz" firstAttribute="top" secondItem="GN4-Nv-wRM" secondAttribute="bottom" constant="8" id="jsu-hE-Zu1"/>
                                         <constraint firstItem="GPu-i9-srz" firstAttribute="leading" secondItem="GN4-Nv-wRM" secondAttribute="leading" id="pf7-oC-ysz"/>
-                                        <constraint firstItem="oK3-Fu-7oZ" firstAttribute="leading" secondItem="Mhb-ql-APS" secondAttribute="leadingMargin" constant="8" id="tPg-A7-t4J"/>
+                                        <constraint firstItem="oK3-Fu-7oZ" firstAttribute="leading" secondItem="Mhb-ql-APS" secondAttribute="leadingMargin" id="tPg-A7-t4J"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>

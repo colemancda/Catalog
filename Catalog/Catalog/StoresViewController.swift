@@ -11,6 +11,7 @@ import UIKit
 import CloudKit
 import CoreCatalog
 import JGProgressHUD
+import JTSImage
 
 final class StoresViewController: UITableViewController {
     
@@ -43,6 +44,17 @@ final class StoresViewController: UITableViewController {
         
         return emptyView
     }()
+    
+    // MARK: - Private Properties
+    
+    private lazy var loadImageOperationQueue: NSOperationQueue = {
+        
+        let queue = NSOperationQueue()
+        
+        queue.name = "\(self) Load Image Queue"
+        
+        return queue
+    }()
 
     // MARK: - Loading
     
@@ -56,9 +68,31 @@ final class StoresViewController: UITableViewController {
     
     // MARK: - Actions
     
+    @IBAction func imageTapped(sender: UIGestureRecognizer) {
+        
+        let imageView = sender.view as! UIImageView
+        
+        // create image info
+        let imageInfo = JTSImageInfo()
+        imageInfo.image = imageView.image!
+        imageInfo.referenceRect = imageView.frame
+        imageInfo.referenceView = imageView.superview
+        imageInfo.referenceContentMode = imageView.contentMode
+        
+        // create image VC
+        let imageVC = JTSImageViewController(imageInfo: imageInfo,
+            mode: JTSImageViewControllerMode.Image,
+            backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
+        
+        // present VC
+        imageVC.showFromViewController(self, transition: JTSImageViewControllerTransition.FromOriginalPosition)
+    }
+    
     // MARK: - Methods
     
     func configureCell(cell: StoreCell, atIndexPath indexPath: NSIndexPath) {
+        
+        let stores = self.stores
         
         let record = stores[indexPath.row]
         
@@ -66,7 +100,7 @@ final class StoresViewController: UITableViewController {
         
         cell.storeNameLabel.text = store.name
         
-        var addressText = store.street + ", " + store.district + ", " + store.city + ", " + store.state + ", " + store.country
+        var addressText = store.street + ", " + store.district + ", " + store.city
         
         if let storeNumber = store.officeNumber {
             
@@ -75,20 +109,63 @@ final class StoresViewController: UITableViewController {
         
         cell.storeAddressLabel.text = addressText
         
-        if let image = store.image {
+        if let imageIdentifier = store.image {
             
             cell.storeImageActivityIndicator.hidden = false
             
             cell.storeImageActivityIndicator.startAnimating()
             
+            cell.storeImageView.image = nil
+            
+            cell.tapGestureRecognizer = nil
+            
             // load image
             
-            CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(image.toRecordID(), completionHandler: { [weak cell] (record, error) in
+            CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(imageIdentifier.toRecordID(), completionHandler: { (record, error) in
                 
-                guard let cell = cell else { return }
-                
-                
-                
+                NSOperationQueue.mainQueue().addOperationWithBlock { [weak self] in
+                    
+                    guard let controller = self where controller.stores == stores  else { return }
+                    
+                    guard error == nil else {
+                        
+                        print("Couldn't load store image. (\(error))")
+                        
+                        cell.storeImageActivityIndicator.stopAnimating()
+                        
+                        cell.storeImageActivityIndicator.hidden = true
+                        
+                        cell.storeImageView.image = R.image.storeImage!
+                        
+                        return
+                    }
+                    
+                    controller.loadImageOperationQueue.addOperationWithBlock { [weak self] in
+                        
+                        guard let catalogImage = Image(record: record!) else { fatalError("Could not parse") }
+                        
+                        let image = UIImage(data: NSData(bytes: catalogImage.data))!
+                        
+                        NSOperationQueue.mainQueue().addOperationWithBlock { [weak self] in
+                            
+                            guard let controller = self where controller.stores == stores  else { return }
+                            
+                            cell.storeImageView.image = image
+                            
+                            cell.storeImageActivityIndicator.stopAnimating()
+                            
+                            cell.storeImageActivityIndicator.hidden = true
+                            
+                            // setup tap gesture
+                            if cell.tapGestureRecognizer == nil {
+                                
+                                cell.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageTapped:")
+                                
+                                cell.storeImageView.addGestureRecognizer(cell.tapGestureRecognizer!)
+                            }
+                        }
+                    }
+                }
             })
         }
         else {
@@ -97,7 +174,9 @@ final class StoresViewController: UITableViewController {
             
             cell.storeImageActivityIndicator.hidden = true
             
-            cell.storeImageView.image = R.image.storeImage!
+            cell.storeImageView.image = R.image.productPlaceholder!
+            
+            cell.tapGestureRecognizer = nil
         }
     }
     
@@ -168,9 +247,13 @@ final class StoresViewController: UITableViewController {
         
         let text = searchBar.text ?? ""
         
-        let predicate = NSPredicate(format: "name BEGINSWITH %@", text)
+        let predicate = NSPredicate(format: "%K BEGINSWITH %@", Store.CloudKitField.name.rawValue, text)
         
         let query = CKQuery(recordType: Store.recordType, predicate: predicate)
+        
+        let sort = NSSortDescriptor(key: Store.CloudKitField.name.rawValue, ascending: true)
+        
+        query.sortDescriptors = [sort]
         
         CKContainer.defaultContainer().publicCloudDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
             
@@ -208,4 +291,6 @@ final class StoreCell: UITableViewCell {
     @IBOutlet weak var storeImageActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var storeImageView: UIImageView!
+    
+    var tapGestureRecognizer: UITapGestureRecognizer?
 }

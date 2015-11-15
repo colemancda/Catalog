@@ -242,9 +242,13 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
         
         let text = searchBar.text ?? ""
         
-        let predicate = NSPredicate(format: "name BEGINSWITH %@", text)
+        let predicate = NSPredicate(format: "%K BEGINSWITH %@", Product.CloudKitField.name.rawValue, text)
         
         let query = CKQuery(recordType: Product.recordType, predicate: predicate)
+        
+        let sort = NSSortDescriptor(key: Product.CloudKitField.name.rawValue, ascending: true)
+        
+        query.sortDescriptors = [sort]
         
         CKContainer.defaultContainer().publicCloudDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
             

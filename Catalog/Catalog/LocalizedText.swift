@@ -52,7 +52,7 @@ extension LocalizedText {
     
     static let Off = LocalizedText(value: "Off", identifier: "Off")
     
-    static let Loading = LocalizedText(value: "Loading", identifier: "Loading")
+    static let Loading = LocalizedText(value: "Loading...", identifier: "Loading")
     
     static let Error = LocalizedText(value: "Error", identifier: "Error")
 }
