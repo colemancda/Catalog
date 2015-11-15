@@ -13,12 +13,12 @@
         <scene sceneID="slI-K7-6U6">
             <objects>
                 <tableViewController id="UTL-ub-9kg" customClass="ProductsViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" id="l2O-yz-9rR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" id="l2O-yz-9rR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="95" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="85" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a Product" id="mnc-e1-2uF">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -29,37 +29,40 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="82" id="NdA-Zw-yLe" customClass="ProductCell" customModule="Catalog" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="82"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="87" id="NdA-Zw-yLe" customClass="ProductCell" customModule="Catalog" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NdA-Zw-yLe" id="jM4-Pa-XyC">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="81.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="86.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tV1-76-hL2">
-                                            <rect key="frame" x="16" y="8" width="66" height="66"/>
+                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProductPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="tV1-76-hL2">
+                                            <rect key="frame" x="8" y="8" width="70.5" height="70.5"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="tV1-76-hL2" secondAttribute="height" multiplier="1:1" id="eWV-pk-ZD9"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BuP-Vc-GMf">
-                                            <rect key="frame" x="39" y="31" width="20" height="20"/>
+                                            <rect key="frame" x="33.5" y="33.5" width="20" height="20"/>
                                             <animations/>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuF-a9-6eN">
-                                            <rect key="frame" x="98" y="16" width="486" height="21"/>
+                                            <rect key="frame" x="86.5" y="16" width="497.5" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Identifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMe-GH-gYt">
-                                            <rect key="frame" x="98" y="44" width="486" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Product Identifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMe-GH-gYt">
+                                            <rect key="frame" x="86.5" y="44" width="497.5" height="26.5"/>
                                             <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="KE6-vA-rii"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -70,19 +73,19 @@
                                         <constraint firstItem="KuF-a9-6eN" firstAttribute="top" secondItem="jM4-Pa-XyC" secondAttribute="topMargin" constant="8" id="FNF-fj-hFA"/>
                                         <constraint firstAttribute="trailing" secondItem="KuF-a9-6eN" secondAttribute="trailing" constant="16" id="FPc-BJ-44g"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="tV1-76-hL2" secondAttribute="bottom" id="HTo-h3-qLh"/>
-                                        <constraint firstItem="tV1-76-hL2" firstAttribute="leading" secondItem="jM4-Pa-XyC" secondAttribute="leadingMargin" constant="8" id="Mp6-CH-STt"/>
-                                        <constraint firstItem="AMe-GH-gYt" firstAttribute="leading" secondItem="tV1-76-hL2" secondAttribute="trailing" constant="16.5" id="PL7-TZ-HA0"/>
+                                        <constraint firstItem="tV1-76-hL2" firstAttribute="leading" secondItem="jM4-Pa-XyC" secondAttribute="leadingMargin" id="Mp6-CH-STt"/>
                                         <constraint firstItem="AMe-GH-gYt" firstAttribute="trailing" secondItem="KuF-a9-6eN" secondAttribute="trailing" id="RjH-W0-DYq"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="AMe-GH-gYt" secondAttribute="bottom" constant="8.5" id="W41-nT-rmS"/>
-                                        <constraint firstItem="AMe-GH-gYt" firstAttribute="top" secondItem="KuF-a9-6eN" secondAttribute="bottom" constant="7" id="WHL-Ke-e74"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AMe-GH-gYt" secondAttribute="bottom" constant="8" id="W41-nT-rmS"/>
+                                        <constraint firstItem="AMe-GH-gYt" firstAttribute="top" secondItem="KuF-a9-6eN" secondAttribute="bottom" constant="8" id="WHL-Ke-e74"/>
                                         <constraint firstItem="AMe-GH-gYt" firstAttribute="leading" secondItem="KuF-a9-6eN" secondAttribute="leading" id="WQf-RY-xYo"/>
                                         <constraint firstItem="tV1-76-hL2" firstAttribute="top" secondItem="jM4-Pa-XyC" secondAttribute="topMargin" id="oAn-vO-nnM"/>
                                         <constraint firstItem="BuP-Vc-GMf" firstAttribute="centerX" secondItem="tV1-76-hL2" secondAttribute="centerX" id="utb-JC-8kH"/>
                                         <constraint firstItem="BuP-Vc-GMf" firstAttribute="centerY" secondItem="tV1-76-hL2" secondAttribute="centerY" id="xSm-Z0-9hK"/>
-                                        <constraint firstItem="KuF-a9-6eN" firstAttribute="leading" secondItem="tV1-76-hL2" secondAttribute="trailing" constant="16" id="xVG-by-UVD"/>
+                                        <constraint firstItem="KuF-a9-6eN" firstAttribute="leading" secondItem="tV1-76-hL2" secondAttribute="trailing" constant="8" id="xVG-by-UVD"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="productIdentifierLabel" destination="AMe-GH-gYt" id="hTV-FI-XOv"/>
                                     <outlet property="productImageActivityIndicator" destination="BuP-Vc-GMf" id="9ZI-zx-2gd"/>
@@ -779,6 +782,7 @@ Lima</string>
         </scene>
     </scenes>
     <resources>
+        <image name="ProductPlaceholder" width="1500" height="1500"/>
         <image name="ProductTabBarIcon" width="25" height="25"/>
         <image name="StoreTabBarIcon" width="25" height="24"/>
     </resources>

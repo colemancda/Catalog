@@ -11,6 +11,7 @@ import UIKit
 import CloudKit
 import CoreCatalog
 import JGProgressHUD
+import JTSImage
 
 final class ProductsViewController: UITableViewController, UISearchBarDelegate {
     
@@ -46,6 +47,17 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
         return emptyView
     }()
     
+    // MARK: - Private Properties
+    
+    private lazy var loadImageOperationQueue: NSOperationQueue = {
+        
+        let queue = NSOperationQueue()
+        
+        queue.name = "\(self) Load Image Queue"
+        
+        return queue
+    }()
+    
     // MARK: - Loading
     
     override func viewDidLoad() {
@@ -58,9 +70,31 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Actions
     
+    @IBAction func imageTapped(sender: UIGestureRecognizer) {
+        
+        let imageView = sender.view as! UIImageView
+        
+        // create image info
+        let imageInfo = JTSImageInfo()
+        imageInfo.image = imageView.image!
+        imageInfo.referenceRect = imageView.frame
+        imageInfo.referenceView = imageView.superview
+        imageInfo.referenceContentMode = imageView.contentMode
+        
+        // create image VC
+        let imageVC = JTSImageViewController(imageInfo: imageInfo,
+            mode: JTSImageViewControllerMode.Image,
+            backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
+        
+        // present VC
+        imageVC.showFromViewController(self, transition: JTSImageViewControllerTransition.FromOriginalPosition)
+    }
+    
     // MARK: - Methods
     
     func configureCell(cell: ProductCell, atIndexPath indexPath: NSIndexPath) {
+        
+        let products = self.products
         
         let record = products[indexPath.row]
         
@@ -70,13 +104,64 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
         
         cell.productIdentifierLabel.text = product.identifier.value
         
-        if let image = product.image {
+        if let imageIdentifier = product.image {
             
             cell.productImageActivityIndicator.hidden = false
             
             cell.productImageActivityIndicator.startAnimating()
             
+            cell.productImageView.image = nil
+            
+            cell.tapGestureRecognizer = nil
+            
             // load image
+            
+            CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(imageIdentifier.toRecordID(), completionHandler: { (record, error) in
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock { [weak self] in
+                    
+                    guard let controller = self where controller.products == products  else { return }
+                    
+                    guard error == nil else {
+                        
+                        print("Couldn't load product image. (\(error))")
+                        
+                        cell.productImageActivityIndicator.stopAnimating()
+                        
+                        cell.productImageActivityIndicator.hidden = true
+                        
+                        cell.productImageView.image = R.image.storeImage!
+                        
+                        return
+                    }
+                    
+                    controller.loadImageOperationQueue.addOperationWithBlock { [weak self] in
+                        
+                        guard let catalogImage = Image(record: record!) else { fatalError("Could not parse") }
+                        
+                        let image = UIImage(data: NSData(bytes: catalogImage.data))!
+                        
+                        NSOperationQueue.mainQueue().addOperationWithBlock { [weak self] in
+                            
+                            guard let controller = self where controller.products == products  else { return }
+                            
+                            cell.productImageView.image = image
+                            
+                            cell.productImageActivityIndicator.stopAnimating()
+                            
+                            cell.productImageActivityIndicator.hidden = true
+                            
+                            // setup tap gesture
+                            if cell.tapGestureRecognizer == nil {
+                                
+                                cell.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageTapped:")
+                                
+                                cell.productImageView.addGestureRecognizer(cell.tapGestureRecognizer!)
+                            }
+                        }
+                    }
+                }
+            })
         }
         else {
             
@@ -84,10 +169,10 @@ final class ProductsViewController: UITableViewController, UISearchBarDelegate {
             
             cell.productImageActivityIndicator.hidden = true
             
-            cell.productImageView.image = R.image.storeImage!
+            cell.productImageView.image = R.image.productPlaceholder!
+            
+            cell.tapGestureRecognizer = nil
         }
-        
-        
     }
     
     func updateEmptyView() {
@@ -215,5 +300,7 @@ final class ProductCell: UITableViewCell {
     @IBOutlet weak var productImageActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var productImageView: UIImageView!
+    
+    var tapGestureRecognizer: UITapGestureRecognizer?
 }
 

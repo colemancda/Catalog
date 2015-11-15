@@ -7,6 +7,7 @@
 //
 
 import SwiftFoundation
+import CloudKit
 
 public struct Image {
     
@@ -16,5 +17,27 @@ public struct Image {
     
     // MARK: - Attributes
     
-    public var image: Data
+    public var data: Data
+}
+
+// MARK: - CloudKit
+
+public extension Image {
+    
+    public enum CloudKitField: String {
+        
+        case data
+    }
+    
+    init?(record: CKRecord) {
+        
+        guard record.recordType == Image.recordType,
+            let dataAsset = record[CloudKitField.data.rawValue] as? CKAsset,
+            let data = NSData(contentsOfURL: dataAsset.fileURL)
+            else { return nil }
+        
+        self.identifier = record.recordID.toIdentifier()
+        
+        self.data = data.arrayOfBytes()
+    }
 }
