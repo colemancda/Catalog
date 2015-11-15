@@ -190,7 +190,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lineas de Nasca 220, La Molina, Lima, Peru - Store 201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-i9-srz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lineas de Nasca 220, La Molina, Lima, Peru - Store 201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-i9-srz">
                                             <rect key="frame" x="98" y="44" width="486" height="21"/>
                                             <animations/>
                                             <constraints>
@@ -621,39 +621,28 @@ Lima</string>
         <scene sceneID="o8U-a5-uDc">
             <objects>
                 <tableViewController id="vaG-kW-c32" customClass="ProductListingsViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="ghk-fQ-UQg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="28" sectionFooterHeight="28" id="ghk-fQ-UQg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingStoreCell" rowHeight="82" id="ki0-DO-oWe" customClass="ListingStoreCell" customModule="Catalog" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="82"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingStoreCell" rowHeight="109" id="ki0-DO-oWe" customClass="ListingStoreCell" customModule="Catalog" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="109"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ki0-DO-oWe" id="HtQ-zQ-M1G">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="81.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="108.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jr7-KN-v7X">
-                                            <rect key="frame" x="16" y="8" width="66" height="66"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Jr7-KN-v7X" secondAttribute="height" multiplier="1:1" id="FH5-uU-Uk6"/>
-                                            </constraints>
-                                        </imageView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PaT-eV-3Iy">
-                                            <rect key="frame" x="39" y="31" width="20" height="20"/>
-                                            <animations/>
-                                        </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0K-TW-qqD">
-                                            <rect key="frame" x="98" y="16" width="91" height="21"/>
+                                            <rect key="frame" x="16" y="16" width="90.5" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Lineas de Nasca 220, La Molina, Lima, Peru - Store 201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4l-f4-J1U">
-                                            <rect key="frame" x="98" y="44" width="356" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Lineas de Nasca 220, La Molina, Lima, Peru - Store 201" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4l-f4-J1U">
+                                            <rect key="frame" x="16" y="43" width="296" height="21"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="e4T-rq-Bj4"/>
@@ -662,11 +651,11 @@ Lima</string>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="S/. 10.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ6-Wy-aCF">
-                                            <rect key="frame" x="517" y="31" width="67" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="S/. 10.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ5-oI-RPk">
+                                            <rect key="frame" x="16" y="72" width="288" height="26"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.17642489446498738" green="0.6068798723708082" blue="0.82575757575757569" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -674,27 +663,28 @@ Lima</string>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="S4l-f4-J1U" secondAttribute="bottom" constant="8.5" id="0hG-6l-kCy"/>
                                         <constraint firstItem="S4l-f4-J1U" firstAttribute="leading" secondItem="B0K-TW-qqD" secondAttribute="leading" id="3re-5Y-hBD"/>
-                                        <constraint firstItem="SJ6-Wy-aCF" firstAttribute="centerY" secondItem="HtQ-zQ-M1G" secondAttribute="centerY" id="897-di-cFg"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="SJ6-Wy-aCF" secondAttribute="trailing" constant="8" id="98g-vN-qVh"/>
+                                        <constraint firstItem="S4l-f4-J1U" firstAttribute="leading" secondItem="B0K-TW-qqD" secondAttribute="leading" id="6j2-Yr-fhL"/>
+                                        <constraint firstItem="B0K-TW-qqD" firstAttribute="leading" secondItem="HtQ-zQ-M1G" secondAttribute="leadingMargin" constant="8" id="E2t-aU-YJ7"/>
+                                        <constraint firstItem="BJ5-oI-RPk" firstAttribute="leading" secondItem="HtQ-zQ-M1G" secondAttribute="leadingMargin" constant="8" id="FeJ-RB-Kss"/>
                                         <constraint firstItem="S4l-f4-J1U" firstAttribute="top" secondItem="B0K-TW-qqD" secondAttribute="bottom" constant="7" id="Hww-1u-KsI"/>
-                                        <constraint firstItem="Jr7-KN-v7X" firstAttribute="leading" secondItem="HtQ-zQ-M1G" secondAttribute="leadingMargin" constant="8" id="Mda-cK-h3z"/>
-                                        <constraint firstItem="SJ6-Wy-aCF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="S4l-f4-J1U" secondAttribute="trailing" constant="20" id="Med-EG-lvu"/>
+                                        <constraint firstItem="S4l-f4-J1U" firstAttribute="leading" secondItem="HtQ-zQ-M1G" secondAttribute="leadingMargin" constant="8" id="JcJ-2c-hA2"/>
+                                        <constraint firstItem="BJ5-oI-RPk" firstAttribute="top" secondItem="S4l-f4-J1U" secondAttribute="bottom" constant="8" id="Vnd-Ld-zNp"/>
                                         <constraint firstItem="B0K-TW-qqD" firstAttribute="top" secondItem="HtQ-zQ-M1G" secondAttribute="topMargin" constant="8" id="XJe-G1-2aK"/>
-                                        <constraint firstItem="Jr7-KN-v7X" firstAttribute="top" secondItem="HtQ-zQ-M1G" secondAttribute="topMargin" id="YYb-eg-hSp"/>
-                                        <constraint firstItem="S4l-f4-J1U" firstAttribute="leading" secondItem="Jr7-KN-v7X" secondAttribute="trailing" constant="16.5" id="a9m-iY-Oij"/>
-                                        <constraint firstItem="SJ6-Wy-aCF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B0K-TW-qqD" secondAttribute="trailing" constant="20" id="gTl-D7-rYx"/>
-                                        <constraint firstItem="PaT-eV-3Iy" firstAttribute="centerX" secondItem="Jr7-KN-v7X" secondAttribute="centerX" id="hUe-Mm-Nim"/>
-                                        <constraint firstItem="B0K-TW-qqD" firstAttribute="leading" secondItem="Jr7-KN-v7X" secondAttribute="trailing" constant="16" id="he6-jf-usu"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Jr7-KN-v7X" secondAttribute="bottom" id="sh7-9h-V5U"/>
-                                        <constraint firstItem="PaT-eV-3Iy" firstAttribute="centerY" secondItem="Jr7-KN-v7X" secondAttribute="centerY" id="vqa-6C-6o8"/>
+                                        <constraint firstItem="S4l-f4-J1U" firstAttribute="trailing" secondItem="HtQ-zQ-M1G" secondAttribute="trailingMargin" id="ZOd-CW-H6B"/>
+                                        <constraint firstAttribute="bottom" secondItem="BJ5-oI-RPk" secondAttribute="bottom" constant="10" id="Zsz-i0-dgV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BJ5-oI-RPk" secondAttribute="trailing" constant="8" id="rsZ-de-HAn"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0hG-6l-kCy"/>
+                                            <exclude reference="JcJ-2c-hA2"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <outlet property="listingPriceLabel" destination="SJ6-Wy-aCF" id="74M-oa-sdo"/>
+                                    <outlet property="listingPriceLabel" destination="BJ5-oI-RPk" id="8zr-2D-8ka"/>
                                     <outlet property="storeAddressLabel" destination="S4l-f4-J1U" id="8xO-mK-adS"/>
-                                    <outlet property="storeImageActivityIndicator" destination="PaT-eV-3Iy" id="wn1-Yv-hzs"/>
-                                    <outlet property="storeImageView" destination="Jr7-KN-v7X" id="vjq-Rv-Hxz"/>
                                     <outlet property="storeNameLabel" destination="B0K-TW-qqD" id="Rvs-z1-2N7"/>
                                     <segue destination="HJh-r4-OEo" kind="show" identifier="ProductListingShowStore" id="3v9-F7-ov0"/>
                                 </connections>
@@ -707,6 +697,7 @@ Lima</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="Listings" id="onm-Q7-sEL"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Nim-1R-pWJ">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
@@ -793,6 +784,6 @@ Lima</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bN3-Kk-ph1"/>
-        <segue reference="3v9-F7-ov0"/>
+        <segue reference="jkY-9H-vi1"/>
     </inferredMetricsTieBreakers>
 </document>

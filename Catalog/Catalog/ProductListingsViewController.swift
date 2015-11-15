@@ -196,10 +196,6 @@ final class ListingStoreCell: UITableViewCell {
     @IBOutlet weak var storeNameLabel: UILabel!
     
     @IBOutlet weak var storeAddressLabel: UILabel!
-    
-    @IBOutlet weak var storeImageActivityIndicator: UIActivityIndicatorView!
-    
-    @IBOutlet weak var storeImageView: UIImageView!
 }
 
 
