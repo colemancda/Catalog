@@ -9,7 +9,7 @@
 import SwiftFoundation
 import CloudKit
 
-public struct Image {
+public struct Image: CloudKitDecodable {
     
     public static let recordType = "Image"
     

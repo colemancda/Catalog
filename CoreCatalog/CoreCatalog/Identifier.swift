@@ -8,7 +8,7 @@
 
 import CloudKit
 
-public struct Identifier {
+public struct Identifier: Equatable {
     
     public var value: String
     
@@ -32,4 +32,11 @@ public extension CKRecordID {
         
         return Identifier(recordName)
     }
+}
+
+// MARK: - Equatable
+
+public func == (lhs: Identifier, rhs: Identifier) -> Bool {
+    
+    return (lhs.value == rhs.value)
 }

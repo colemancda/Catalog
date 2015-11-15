@@ -13,3 +13,20 @@ public protocol CloudKitDecodable {
     
     init?(record: CKRecord)
 }
+
+public extension CloudKitDecodable {
+    
+    static func fromCloudKit(records: [CKRecord]) -> [Self]? {
+        
+        var decodables = [Self]()
+        
+        for record in records {
+            
+            guard let decodable = self.init(record: record) else { return nil }
+            
+            decodables.append(decodable)
+        }
+        
+        return decodables
+    }
+}

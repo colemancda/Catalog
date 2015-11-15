@@ -20,7 +20,9 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
     
     var product: CKRecord!
     
-    private(set) var results = [CKRecord]()
+    private(set) var results = [Listing]()
+    
+    private(set) var cachedStores = [String: Store]()
     
     // MARK: Views
     
@@ -42,13 +44,13 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.refreshData()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.refreshData()
+        
     }
     
     // MARK: - Actions
@@ -102,10 +104,26 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
                     controller.progressHUD.dismiss()
                 }
                 
-                controller.results = results!
+                var listings = [Listing]()
                 
+                for record in results! {
+                    
+                    guard let listing = Listing(record: record) else {
+                        
+                        controller.showErrorAlert(LocalizedText.InvalidServerResponse.localizedString)
+                        
+                        return
+                    }
+                    
+                    listings.append(listing)
+                }
+                
+                // set cache
+                controller.results = listings
+                controller.cachedStores = [String: Store]()
+                
+                // refresh UI
                 controller.tableView.reloadData()
-                
                 controller.updateEmptyView()
             }
         }
@@ -117,25 +135,25 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
         
         let results = self.results
         
-        let record = results[indexPath.row]
+        let listing = results[indexPath.row]
         
-        guard let product = Listing(record: record) else { fatalError("Couldn't parse data") }
-        
-        cell.listingPriceLabel.text = product.priceString
+        cell.listingPriceLabel.text = listing.priceString
         
         cell.storeNameLabel.text = LocalizedText.Loading.localizedString
         
         cell.storeAddressLabel.text = ""
         
+        cell.userInteractionEnabled = false
+        
         // load store
         
-        CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(product.store.toRecordID()) { (record, error) in
+        CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(listing.store.toRecordID()) { (record, error) in
             
             NSOperationQueue.mainQueue().addOperationWithBlock { [weak self] in
                 
                 guard let controller = self where controller.results == results  else { return }
                 
-                guard error == nil else {
+                guard error == nil, let record = record, let store = Store(record: record) else {
                     
                     print("Couldn't load store. (\(error))")
                     
@@ -146,7 +164,15 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
                     return
                 }
                 
-                guard let store = Store(record: record!) else { fatalError("Couldn't parse data") }
+                // enable cell
+                
+                cell.userInteractionEnabled = true
+                
+                // save to cache
+                
+                controller.cachedStores[store.identifier.value] = store
+                
+                // configure cell
                 
                 cell.storeNameLabel.text = store.name
                 
@@ -202,6 +228,26 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
         self.configureCell(cell, atIndexPath: indexPath)
         
         return cell
+    }
+    
+    // MARK: - Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch segue.identifier! {
+            
+        case R.segue.productListingShowStore:
+            
+            let selectedListing = self.results[tableView.indexPathForSelectedRow!.row]
+            
+            let store = self.cachedStores[selectedListing.store.value]!
+            
+            let destinationVC = segue.destinationViewController as! StoreViewController
+            
+            destinationVC.store = store
+            
+        default: fatalError("Unknown Segue: \(segue.identifier)")
+        }
     }
 }
 

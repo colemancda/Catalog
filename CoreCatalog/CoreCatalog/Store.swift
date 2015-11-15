@@ -9,7 +9,7 @@
 import CoreLocation
 import CloudKit
 
-public struct Store: CloudKitDecodable {
+public struct Store: CloudKitDecodable, Equatable {
     
     public static let recordType = "Store"
     
@@ -48,6 +48,26 @@ public struct Store: CloudKitDecodable {
     // MARK: - Relationships
     
     public var image: Identifier?
+}
+
+// MARK: - Equatable
+
+public func == (lhs: Store, rhs: Store) -> Bool {
+    
+    return (lhs.identifier == rhs.identifier &&
+        lhs.name == rhs.name &&
+        lhs.text == rhs.text &&
+        lhs.phoneNumber == rhs.phoneNumber &&
+        lhs.email == rhs.email &&
+        lhs.country == rhs.country &&
+        lhs.state == rhs.state &&
+        lhs.city == rhs.city &&
+        lhs.district == rhs.district &&
+        lhs.street == rhs.street &&
+        lhs.officeNumber == rhs.officeNumber &&
+        lhs.directionsNote == rhs.directionsNote &&
+        lhs.location == rhs.location &&
+        lhs.image == rhs.image)
 }
 
 // MARK: - CloudKit

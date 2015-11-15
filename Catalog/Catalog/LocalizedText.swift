@@ -55,5 +55,7 @@ extension LocalizedText {
     static let Loading = LocalizedText(value: "Loading...", identifier: "Loading")
     
     static let Error = LocalizedText(value: "Error", identifier: "Error")
+    
+    static let InvalidServerResponse = LocalizedText(value: "Invalid Server Response", identifier: "InvalidServerResponse")
 }
 

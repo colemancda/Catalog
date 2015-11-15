@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-public struct Listing {
+public struct Listing: Equatable {
     
     public static let recordType = "Listing"
     
@@ -24,6 +24,17 @@ public struct Listing {
     public var product: Identifier
     
     public var store: Identifier
+}
+
+// MARK: - Equatable
+
+public func == (lhs: Listing, rhs: Listing) -> Bool {
+    
+    return (lhs.identifier == rhs.identifier &&
+        lhs.currency == rhs.currency &&
+        lhs.price == rhs.price &&
+        lhs.product == rhs.product &&
+        lhs.store == rhs.store)
 }
 
 // MARK: - CloudKit

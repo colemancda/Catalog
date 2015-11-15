@@ -17,7 +17,7 @@ final class StoresViewController: UITableViewController {
     
     // MARK: - Properties
     
-    private(set) var stores = [CKRecord]()
+    private(set) var stores = [Store]()
     
     private(set) var didSearch = false
     
@@ -94,9 +94,7 @@ final class StoresViewController: UITableViewController {
         
         let stores = self.stores
         
-        let record = stores[indexPath.row]
-        
-        guard let store = Store(record: record) else { fatalError("Couldn't parse data") }
+        let store = stores[indexPath.row]
         
         cell.storeNameLabel.text = store.name
         
@@ -270,12 +268,37 @@ final class StoresViewController: UITableViewController {
                     return
                 }
                 
-                controller.stores = results!
+                guard let stores = Store.fromCloudKit(results!) else {
+                    
+                    controller.showErrorAlert(LocalizedText.InvalidServerResponse.localizedString)
+                    
+                    return
+                }
+                
+                controller.stores = stores
                 
                 controller.tableView.reloadData()
                 
                 controller.updateEmptyView()
             }
+        }
+    }
+    
+    // MARK: - Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch segue.identifier! {
+            
+        case R.segue.showStore:
+            
+            let store = self.stores[self.tableView.indexPathForSelectedRow!.row]
+            
+            let destinationVC = segue.destinationViewController as! StoreViewController
+            
+            destinationVC.store = store
+            
+        default: fatalError("Unknown Segue: \(segue.identifier)")
         }
     }
 }

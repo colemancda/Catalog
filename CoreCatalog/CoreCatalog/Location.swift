@@ -6,7 +6,7 @@
 //  Copyright © 2015 ColemanCDA. All rights reserved.
 //
 
-public struct Location {
+public struct Location: Equatable {
     
     public var latitude: Double
     
@@ -17,4 +17,11 @@ public struct Location {
         self.latitude = latitude
         self.longitude = longitude
     }
+}
+
+// MARK: - Equatable
+
+public func == (lhs: Location, rhs: Location) -> Bool {
+    
+    return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
 }
