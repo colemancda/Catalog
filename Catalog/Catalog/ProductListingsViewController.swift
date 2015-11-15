@@ -61,7 +61,9 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
         
         if empty {
             
-            progressHUD.showInView(self.view)
+            progressHUD.showInView(self.navigationController!.view!)
+            
+            progressHUD.interactionType = .BlockTouchesOnHUDView
             
             tableView.scrollEnabled = false
         }

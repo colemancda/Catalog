@@ -298,6 +298,22 @@ final class StoreViewController: UITableViewController, MFMailComposeViewControl
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: - Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch segue.identifier! {
+            
+        case R.segue.showStoreListings:
+            
+            let destinationVC = segue.destinationViewController as! StoreListingsViewController
+            
+            destinationVC.store = self.store.identifier
+            
+        default: fatalError("Unknown segue: \(segue.identifier!)")
+        }
+    }
 }
 
 // MARK: - Supporting Types
