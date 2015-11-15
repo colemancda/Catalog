@@ -161,7 +161,15 @@ final class StoreListingsViewController: UITableViewController, UISearchBarDeleg
         
         cell.userInteractionEnabled = false
         
-        // load store
+        cell.productImageActivityIndicator.hidden = false
+        
+        cell.productImageActivityIndicator.startAnimating()
+        
+        cell.productImageView.image = nil
+        
+        cell.tapGestureRecognizer = nil
+        
+        // load product
         
         CKContainer.defaultContainer().publicCloudDatabase.fetchRecordWithID(listing.product.toRecordID()) { (record, error) in
             
