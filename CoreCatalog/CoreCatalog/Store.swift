@@ -107,7 +107,7 @@ public extension Store {
         self.street = street
         self.directionsNote = directionsNote
         
-        if let officeNumber = record[CloudKitField.officeNumber.rawValue] as? String {
+        if let officeNumber = record[CloudKitField.officeNumber.rawValue] as? String where officeNumber != "" {
             
             self.officeNumber = officeNumber
         }
