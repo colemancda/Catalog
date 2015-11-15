@@ -57,6 +57,35 @@ public extension Listing {
 
 public extension Listing {
     
+    public var currencyLocale: NSLocale {
+        
+        let components = [NSLocaleCurrencyCode: currency]
+        
+        let localeIdentifier = NSLocale.localeIdentifierFromComponents(components)
+        
+        let locale = NSLocale(localeIdentifier: localeIdentifier)
+        
+        return locale
+    }
     
+    public var priceString: String {
+        
+        NumberFormatter.locale = currencyLocale
+        
+        return NumberFormatter.stringFromNumber(price)!
+    }
 }
+
+// MARK: - Private
+
+private let NumberFormatter: NSNumberFormatter = {
+    
+    let formatter = NSNumberFormatter()
+    
+    formatter.numberStyle = .CurrencyStyle
+    
+    return formatter
+}()
+
+
 

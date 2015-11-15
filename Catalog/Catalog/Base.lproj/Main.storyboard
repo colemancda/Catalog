@@ -223,7 +223,7 @@
                                     <outlet property="storeImageActivityIndicator" destination="7Hk-bs-Y14" id="Ans-aX-Y7G"/>
                                     <outlet property="storeImageView" destination="oK3-Fu-7oZ" id="0yc-SB-yGp"/>
                                     <outlet property="storeNameLabel" destination="GN4-Nv-wRM" id="CA6-MU-tAm"/>
-                                    <segue destination="HJh-r4-OEo" kind="show" identifier="showStore" id="QEH-xl-ZQ3">
+                                    <segue destination="HJh-r4-OEo" kind="show" identifier="ShowStore" id="QEH-xl-ZQ3">
                                         <segue key="commit" inheritsFrom="parent" id="S5l-8P-D75"/>
                                         <segue key="preview" inheritsFrom="commit" id="jkY-9H-vi1"/>
                                     </segue>
@@ -695,10 +695,7 @@ Lima</string>
                                     <outlet property="storeImageActivityIndicator" destination="PaT-eV-3Iy" id="wn1-Yv-hzs"/>
                                     <outlet property="storeImageView" destination="Jr7-KN-v7X" id="vjq-Rv-Hxz"/>
                                     <outlet property="storeNameLabel" destination="B0K-TW-qqD" id="Rvs-z1-2N7"/>
-                                    <segue destination="HJh-r4-OEo" kind="showDetail" identifier="ProductListingShowStore" id="BA0-iL-9Tu">
-                                        <segue key="commit" inheritsFrom="parent" id="fpL-PU-Svf"/>
-                                        <segue key="preview" inheritsFrom="commit" id="AGu-JK-QV3"/>
-                                    </segue>
+                                    <segue destination="HJh-r4-OEo" kind="show" identifier="ProductListingShowStore" id="3v9-F7-ov0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -713,7 +710,7 @@ Lima</string>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <connections>
-                            <action selector="refreshData:" destination="vaG-kW-c32" eventType="editingChanged" id="7yu-wD-cH0"/>
+                            <action selector="refreshData:" destination="vaG-kW-c32" eventType="valueChanged" id="Ece-ub-S0b"/>
                         </connections>
                     </refreshControl>
                 </tableViewController>
@@ -795,6 +792,6 @@ Lima</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bN3-Kk-ph1"/>
-        <segue reference="BA0-iL-9Tu"/>
+        <segue reference="3v9-F7-ov0"/>
     </inferredMetricsTieBreakers>
 </document>

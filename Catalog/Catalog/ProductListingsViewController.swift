@@ -24,6 +24,8 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
     
     // MARK: Views
     
+    let progressHUD = JGProgressHUD(style: .Dark)
+    
     lazy var emptyView: EmptyView = {
         
         let emptyView = EmptyView.fromNib()
@@ -40,7 +42,7 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -53,13 +55,22 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
     
     @IBAction func refreshData(sender: AnyObject? = nil) {
         
-        let progressHUD = JGProgressHUD(style: .Dark)
+        let empty = (results.count == 0)
         
-        progressHUD.showInView(self.navigationController!.view)
+        if empty {
+            
+            progressHUD.showInView(self.view)
+            
+            tableView.scrollEnabled = false
+        }
         
         let predicate = NSPredicate(format: "product == %@", product)
         
         let query = CKQuery(recordType: Listing.recordType, predicate: predicate)
+        
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        
+        query.sortDescriptors = [priceSort]
         
         CKContainer.defaultContainer().publicCloudDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
             
@@ -69,13 +80,26 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
                 
                 controller.refreshControl?.endRefreshing()
                 
-                progressHUD.dismiss()
+                if empty {
+                    
+                    controller.tableView.scrollEnabled = true
+                }
                 
                 guard error == nil else {
+                    
+                    if empty {
+                        
+                        controller.progressHUD.dismissAnimated(false)
+                    }
                     
                     controller.showErrorAlert((error! as NSError).localizedDescription)
                     
                     return
+                }
+                
+                if empty {
+                    
+                    controller.progressHUD.dismiss()
                 }
                 
                 controller.results = results!
@@ -95,28 +119,28 @@ final class ProductListingsViewController: UITableViewController, UISearchBarDel
         
         guard let product = Listing(record: record) else { fatalError("Couldn't parse data") }
         
-        /*
-        cell.listingPriceLabel.text = product.name
+        cell.listingPriceLabel.text = product.priceString
         
-        cell.productIdentifierLabel.text = product.identifier.value
+        // load store image
+        /*
         
         if let image = product.image {
             
-            cell.productImageView.image = nil
+            cell.storeImageView.image = nil
             
-            cell.productImageActivityIndicator.hidden = false
+            cell.storeImageActivityIndicator.hidden = false
             
-            cell.productImageActivityIndicator.startAnimating()
+            cell.storeImageActivityIndicator.startAnimating()
             
             // load image
         }
         else {
             
-            cell.productImageActivityIndicator.stopAnimating()
+            cell.storeImageActivityIndicator.stopAnimating()
             
-            cell.productImageActivityIndicator.hidden = true
+            cell.storeImageActivityIndicator.hidden = true
             
-            cell.productImageView.image = R.image.storeImage!
+            cell.storeImageView.image = R.image.storeImage!
         }*/
     }
     
