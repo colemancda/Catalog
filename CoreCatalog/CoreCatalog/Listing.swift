@@ -37,13 +37,6 @@ public func == (lhs: Listing, rhs: Listing) -> Bool {
         lhs.store == rhs.store)
 }
 
-// MARK: - Identity
-
-public func === (lhs: Store, rhs: Store) -> Bool {
-    
-    return lhs.identifier == rhs.identifier
-}
-
 // MARK: - CloudKit
 
 public extension Listing {
