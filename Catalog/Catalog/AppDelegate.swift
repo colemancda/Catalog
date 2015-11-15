@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // print app info
+        print("Launching Catalog v\(AppVersion) Build \(AppBuild)")
+        
         SetAppearance()
         
         return true

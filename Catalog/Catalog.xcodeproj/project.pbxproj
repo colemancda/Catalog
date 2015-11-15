@@ -31,6 +31,7 @@
 		6EA6CAAE1BF7DBE700735B79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */; };
 		6EA6CAB01BF7E30100735B79 /* ProductListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6CAAF1BF7E30100735B79 /* ProductListingsViewController.swift */; };
 		6EADAED91BF822A3007CF04C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADAED81BF822A3007CF04C /* Appearance.swift */; };
+		6EADAEE11BF82754007CF04C /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADAEE01BF82754007CF04C /* Version.swift */; };
 		6EF660E01BF71AB900BACE52 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */; };
 		6EF660E71BF71D8000BACE52 /* b64.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6EF660E31BF71D8000BACE52 /* b64.framework.dSYM */; };
 		6EF660E81BF71D8000BACE52 /* JGProgressHUD.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6EF660E41BF71D8000BACE52 /* JGProgressHUD.framework.dSYM */; };
@@ -144,6 +145,7 @@
 		6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6EA6CAAF1BF7E30100735B79 /* ProductListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListingsViewController.swift; sourceTree = "<group>"; };
 		6EADAED81BF822A3007CF04C /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		6EADAEE01BF82754007CF04C /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		6EF660E31BF71D8000BACE52 /* b64.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = b64.framework.dSYM; path = ../Carthage/Build/iOS/b64.framework.dSYM; sourceTree = "<group>"; };
 		6EF660E41BF71D8000BACE52 /* JGProgressHUD.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JGProgressHUD.framework.dSYM; path = ../Carthage/Build/iOS/JGProgressHUD.framework.dSYM; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				6E6717171BEB109E00E9C5D8 /* Assets.xcassets */,
 				6E6717191BEB109E00E9C5D8 /* LaunchScreen.storyboard */,
 				6EADAED81BF822A3007CF04C /* Appearance.swift */,
+				6EADAEE01BF82754007CF04C /* Version.swift */,
 				6E3EDC4C1BF7CC6300900939 /* EmptyView.swift */,
 				6E3EDC4A1BF7CC5200900939 /* EmptyView.xib */,
 				6EF661101BF72B9A00BACE52 /* ErrorAlert.swift */,
@@ -286,6 +289,7 @@
 				6EF660E11BF71D0C00BACE52 /* Copy Frameworks */,
 				6EF660E21BF71D5B00BACE52 /* Copy Debug Symbols */,
 				6EF6610A1BF71ED100BACE52 /* Embed Frameworks */,
+				6EADAEDD1BF8271C007CF04C /* Increment Build */,
 			);
 			buildRules = (
 			);
@@ -417,6 +421,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6EADAEDD1BF8271C007CF04C /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nif [ $TRAVIS == \"true\" ]\nthen echo \"Updating build number to TRAVISCI.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion TRAVISCI\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse branch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+		};
 		6EF660E11BF71D0C00BACE52 /* Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +479,7 @@
 				6EF661141BF7301E00BACE52 /* StoresViewController.swift in Sources */,
 				6EA6CAB01BF7E30100735B79 /* ProductListingsViewController.swift in Sources */,
 				6EF661111BF72B9A00BACE52 /* ErrorAlert.swift in Sources */,
+				6EADAEE11BF82754007CF04C /* Version.swift in Sources */,
 				6E6717111BEB109E00E9C5D8 /* AppDelegate.swift in Sources */,
 				6E3EDC4D1BF7CC6300900939 /* EmptyView.swift in Sources */,
 				6EF6610C1BF71F8C00BACE52 /* R.generated.swift in Sources */,
