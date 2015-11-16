@@ -13,9 +13,7 @@ import CoreDataStruct
 import CloudKitStruct
 import CloudKitStore
 
-public struct Store: CloudKitDecodable, Equatable {
-    
-    public static let recordType = "Store"
+public struct Store: CloudKitDecodable, CloudKitCacheable, CoreDataEncodable, CoreDataDecodable, Equatable {
     
     public let identifier: Identifier
     
@@ -78,27 +76,30 @@ public func == (lhs: Store, rhs: Store) -> Bool {
 
 public extension Store {
     
-    public enum CloudKitField: String {
+    static var recordType: String { return "Store" }
+    
+    var recordName: String { return identifier }
+    
+     enum CloudKitField: String {
     
         case name, text, phoneNumber, email, country, state, city, district, street, officeNumber, directionsNote, location, image
     }
     
-    init?(record: CKRecord) {
+    init?(recordName: String, values: [String : CKRecordValue]) {
         
-        guard record.recordType == Store.recordType,
-            let name = record[CloudKitField.name.rawValue] as? String,
-            let text = record[CloudKitField.text.rawValue] as? String,
-            let phoneNumber = record[CloudKitField.phoneNumber.rawValue] as? String,
-            let email = record[CloudKitField.email.rawValue] as? String,
-            let country = record[CloudKitField.country.rawValue] as? String,
-            let state = record[CloudKitField.state.rawValue] as? String,
-            let city = record[CloudKitField.city.rawValue] as? String,
-            let district = record[CloudKitField.district.rawValue] as? String,
-            let street = record[CloudKitField.street.rawValue] as? String,
-            let directionsNote = record[CloudKitField.directionsNote.rawValue] as? String
+        guard let name = values[CloudKitField.name.rawValue] as? String,
+            let text = values[CloudKitField.text.rawValue] as? String,
+            let phoneNumber = values[CloudKitField.phoneNumber.rawValue] as? String,
+            let email = values[CloudKitField.email.rawValue] as? String,
+            let country = values[CloudKitField.country.rawValue] as? String,
+            let state = values[CloudKitField.state.rawValue] as? String,
+            let city = values[CloudKitField.city.rawValue] as? String,
+            let district = values[CloudKitField.district.rawValue] as? String,
+            let street = values[CloudKitField.street.rawValue] as? String,
+            let directionsNote = values[CloudKitField.directionsNote.rawValue] as? String
             else { return nil }
         
-        self.identifier = record.recordID.toIdentifier()
+        self.identifier = recordName
         
         self.name = name
         self.text = text
@@ -111,21 +112,47 @@ public extension Store {
         self.street = street
         self.directionsNote = directionsNote
         
-        if let officeNumber = record[CloudKitField.officeNumber.rawValue] as? String where officeNumber != "" {
+        if let officeNumber = values[CloudKitField.officeNumber.rawValue] as? String where officeNumber != "" {
             
             self.officeNumber = officeNumber
         }
         
-        if let imageReference = record[CloudKitField.image.rawValue] as? CKReference {
+        if let imageReference = values[CloudKitField.image.rawValue] as? CKReference {
             
-            self.image = imageReference.recordID.toIdentifier()
+            self.image = imageReference.recordID.recordName
         }
         
-        if let location = record[CloudKitField.location.rawValue] as? CLLocation {
+        if let location = values[CloudKitField.location.rawValue] as? CLLocation {
             
             self.location = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
 }
 
+// MARK: - CoreData
+
+public extension Store {
+    
+    static var entityName: String { return "Store" }
+    
+    enum CoreDataProperty: String {
+        
+        case name, text, phoneNumber, email, country, state, city, district, street, officeNumber, directionsNote, locationLatitiude, locationLongitude, image, listings
+    }
+    
+    func save(context: NSManagedObjectContext) throws -> NSManagedObject {
+        
+        
+    }
+}
+
+// MARK: - CloudKitCacheable
+
+public extension Store {
+    
+    static func fetchFromCache(recordName: String, context: NSManagedObjectContext) throws -> NSManagedObject? {
+        
+        
+    }
+}
 

@@ -34,7 +34,29 @@ internal extension NSManagedObjectContext {
         return
     }
     
-    func findOrCreateEntity<T: NSManagedObject>(entity: NSEntityDescription, withResourceID resourceID: String) throws -> T {
+    func findOrCreateEntity(entityName: String, withResourceID resourceID: String) throws -> NSManagedObject {
+        
+        guard let foundEntity = try findEntity(entityName, withResourceID: resourceID) else {
+            
+            // create cached resource if not found... 
+            
+            // create a new entity
+            let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self)
+            
+            // set resource ID
+            (newManagedObject).setValue(resourceID, forKey: CoreDataResourceIDAttributeName)
+            
+            return newManagedObject
+        }
+        
+        return foundEntity
+    }
+    
+    func findEntity(entityName: String, withResourceID resourceID: String) throws -> NSManagedObject? {
+        
+        // get entity
+        guard let entity = self.persistentStoreCoordinator?.managedObjectModel.entitiesByName[entityName]
+            else { fatalError("Unknown Entity: \(entityName)") }
         
         // get cached resource...
         
@@ -52,28 +74,9 @@ internal extension NSManagedObjectContext {
         
         // fetch
         
-        let results = try self.executeFetchRequest(fetchRequest) as! [T]
+        let results = try self.executeFetchRequest(fetchRequest) as! [NSManagedObject]
         
-        let resource: T
-        
-        if let firstResult = results.first {
-            
-            resource = firstResult
-        }
-            
-        // create cached resource if not found
-        else {
-            
-            // create a new entity
-            let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: self)
-            
-            // set resource ID
-            (newManagedObject).setValue(resourceID, forKey: CoreDataResourceIDAttributeName)
-            
-            resource = newManagedObject as! T
-        }
-        
-        return resource
+        return results.first
     }
 }
 
@@ -82,15 +85,13 @@ internal extension NSManagedObject {
     /// Wraps primitive accessor. 
     func getValue<T: AnyObject>(key: String) -> T? {
         
-        self.willAccessValueForKey(key)
-        let value = self.primitiveValueForKey(key) as? T
-        self.didAccessValueForKey(key)
+        let value = self.valueForKey(key)
         
-        return value
+        return value as? T
     }
     
     /// Get an array from a to-many relationship.
-    func arrayValueForToManyRelationship(relationship key: String) -> [NSManagedObject]? {
+    func arrayValueForToManyRelationship(relationship key: String) -> [NSManagedObject] {
         
         // assert relationship exists
         assert(self.entity.relationshipsByName[key] != nil, "Relationship \(key) doesnt exist on \(self.entity.name)")
@@ -105,7 +106,7 @@ internal extension NSManagedObject {
         
         if value == nil {
             
-            return nil
+            return []
         }
         
         // ordered set
@@ -113,13 +114,13 @@ internal extension NSManagedObject {
             
             let orderedSet = value as! NSOrderedSet
             
-            return orderedSet.array as? [NSManagedObject]
+            return orderedSet.array as! [NSManagedObject]
         }
         
         // set
         let set = value as! NSSet
         
-        return set.allObjects as? [NSManagedObject]
+        return set.allObjects as! [NSManagedObject]
     }
     
     /// Wraps the ```-valueForKey:``` method in the context's queue.
@@ -156,6 +157,25 @@ internal extension NSManagedObjectModel {
                 resourceIDAttribute.attributeType = NSAttributeType.StringAttributeType
                 resourceIDAttribute.name = resourceIDAttributeName
                 resourceIDAttribute.optional = false
+                
+                // add to entity
+                entity.properties.append(resourceIDAttribute)
+            }
+        }
+    }
+    
+    func addCachedAttribute(attributeName: String) {
+        
+        // add a resourceID attribute to managed object model
+        for (_, entity) in self.entitiesByName {
+            
+            if entity.superentity == nil {
+                
+                // create new (runtime) attribute
+                let resourceIDAttribute = NSAttributeDescription()
+                resourceIDAttribute.attributeType = NSAttributeType.BooleanAttributeType
+                resourceIDAttribute.name = attributeName
+                resourceIDAttribute.optional = true
                 
                 // add to entity
                 entity.properties.append(resourceIDAttribute)

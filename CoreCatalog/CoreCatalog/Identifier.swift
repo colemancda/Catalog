@@ -8,35 +8,4 @@
 
 import CloudKit
 
-public struct Identifier: Equatable {
-    
-    public var value: String
-    
-    public init(_ value : String) {
-        
-        self.value = value
-    }
-}
-
-public extension Identifier {
-    
-    func toRecordID() -> CKRecordID {
-        
-        return CKRecordID(recordName: value)
-    }
-}
-
-public extension CKRecordID {
-    
-    func toIdentifier() -> Identifier {
-        
-        return Identifier(recordName)
-    }
-}
-
-// MARK: - Equatable
-
-public func == (lhs: Identifier, rhs: Identifier) -> Bool {
-    
-    return (lhs.value == rhs.value)
-}
+public typealias Identifier = String

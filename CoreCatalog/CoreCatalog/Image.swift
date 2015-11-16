@@ -18,6 +18,8 @@ public struct Image: CloudKitDecodable {
     // MARK: - Attributes
     
     public var data: Data
+    
+    public var referenceID: String
 }
 
 // MARK: - CloudKit

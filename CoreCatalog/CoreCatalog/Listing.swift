@@ -17,7 +17,7 @@ public struct Listing: Equatable {
     
     // MARK: - Attributes
     
-    public var currency: String
+    public var currency: Currency
     
     public var price: Double
     

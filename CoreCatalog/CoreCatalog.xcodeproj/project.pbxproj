@@ -10,6 +10,8 @@
 		6E559FC81BE9ABC400A924FA /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E559FC71BE9ABC400A924FA /* Store.swift */; };
 		6E559FCA1BE9B15000A924FA /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E559FC91BE9B15000A924FA /* Listing.swift */; };
 		6E559FCC1BE9B16400A924FA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E559FCB1BE9B16400A924FA /* Product.swift */; };
+		6E7F8AC61BF9A35400FC9C8D /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F8AC51BF9A35400FC9C8D /* Currency.swift */; };
+		6E7F8AC71BF9A35400FC9C8D /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F8AC51BF9A35400FC9C8D /* Currency.swift */; };
 		6EE054F41BE89B5A00F31720 /* CoreCatalog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE054F31BE89B5A00F31720 /* CoreCatalog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EE054FB1BE89B5A00F31720 /* CoreCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE054F01BE89B5A00F31720 /* CoreCatalog.framework */; };
 		6EE055001BE89B5A00F31720 /* CoreCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE054FF1BE89B5A00F31720 /* CoreCatalogTests.swift */; };
@@ -47,6 +49,7 @@
 		6E559FC71BE9ABC400A924FA /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		6E559FC91BE9B15000A924FA /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		6E559FCB1BE9B16400A924FA /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		6E7F8AC51BF9A35400FC9C8D /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		6EE054F01BE89B5A00F31720 /* CoreCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE054F31BE89B5A00F31720 /* CoreCatalog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreCatalog.h; sourceTree = "<group>"; };
 		6EE054F51BE89B5A00F31720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 				6EFC75E71BF59C52002A4822 /* Image.swift */,
 				6EFC75EA1BF59ECF002A4822 /* Identifier.swift */,
 				6EFC75ED1BF5A8E4002A4822 /* Location.swift */,
+				6E7F8AC51BF9A35400FC9C8D /* Currency.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -292,6 +296,7 @@
 				6EFC75EB1BF59ECF002A4822 /* Identifier.swift in Sources */,
 				6EFC75EE1BF5A8E4002A4822 /* Location.swift in Sources */,
 				6EFAF7F81BF9916B00779AFF /* Model.xcdatamodeld in Sources */,
+				6E7F8AC61BF9A35400FC9C8D /* Currency.swift in Sources */,
 				6EFC75E81BF59C52002A4822 /* Image.swift in Sources */,
 				6E559FCC1BE9B16400A924FA /* Product.swift in Sources */,
 				6EF4214D1BF43317002D730E /* Validate.swift in Sources */,
@@ -317,6 +322,7 @@
 				6EFC75EC1BF59ECF002A4822 /* Identifier.swift in Sources */,
 				6EFC75EF1BF5A8E4002A4822 /* Location.swift in Sources */,
 				6EFAF7F91BF9916B00779AFF /* Model.xcdatamodeld in Sources */,
+				6E7F8AC71BF9A35400FC9C8D /* Currency.swift in Sources */,
 				6EFC75E91BF59C52002A4822 /* Image.swift in Sources */,
 				6EE3FBC31BEEF63B00C9CC3B /* Product.swift in Sources */,
 				6EF4214E1BF43317002D730E /* Validate.swift in Sources */,

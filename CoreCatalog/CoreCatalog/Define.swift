@@ -16,6 +16,8 @@ public var ManagedObjectModel: NSManagedObjectModel {
     
     managedObjectModel.addResourceIDAttribute(CoreDataResourceIDAttributeName)
     
+    managedObjectModel.addCachedAttribute(CoreDataCachedAttributeName)
+    
     return managedObjectModel.copy() as! NSManagedObjectModel
 }
 
@@ -25,3 +27,5 @@ public var ManagedObjectModel: NSManagedObjectModel {
 public let BundleIdentifier = "com.colemancda.CoreCatalog"
 
 public let CoreDataResourceIDAttributeName = "id"
+
+public let CoreDataCachedAttributeName = "cached"
