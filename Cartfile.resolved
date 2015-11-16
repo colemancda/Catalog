@@ -1,5 +1,8 @@
+github "ColemanCDA/CloudKitStruct" "7c2ba56f485436b941fdcdfee241926a5ec21704"
+github "ColemanCDA/CoreDataStruct" "92e541754c6ae118a7ee8e0fb85e6140979024e8"
 github "JonasGessner/JGProgressHUD" "01dfbc2c3400d80e165f66d03e816b72f9ef3fff"
 github "ColemanCDA/JTSImageViewController" "7d7849b32504e5a2c10ad1ddcb5d4b0ed3ea4428"
 github "PureSwift/json-c" "08d8b728d0cf5a2dc24c51851afebe8575eb4ce6"
 github "PureSwift/libb64" "bf9aa1d4d06c755fba21987f86f7dc9eb68c4d9e"
+github "ColemanCDA/CloudKitStore" "c91161deed96c1d58d38793751be61cba9ff638a"
 github "PureSwift/SwiftFoundation" "752964dc7f04e08c2f85d6c1352ae48b3f5e73fe"
