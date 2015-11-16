@@ -8,7 +8,6 @@
     </entity>
     <entity name="Product" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="productIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Listing" inverseName="product" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <entity name="Store" syncable="YES">
@@ -29,7 +28,7 @@
     </entity>
     <elements>
         <element name="Listing" positionX="-18" positionY="81" width="128" height="105"/>
-        <element name="Product" positionX="-36" positionY="72" width="128" height="90"/>
+        <element name="Product" positionX="-36" positionY="72" width="128" height="75"/>
         <element name="Store" positionX="-63" positionY="-18" width="128" height="255"/>
     </elements>
 </model>

@@ -6,14 +6,28 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6E7F8AA81BF997EC00FC9C8D /* R.Swift */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6E7F8AAB1BF997EC00FC9C8D /* Build configuration list for PBXAggregateTarget "R.Swift" */;
+			buildPhases = (
+				6E7F8AAC1BF997F500FC9C8D /* Run Script */,
+			);
+			dependencies = (
+			);
+			name = R.Swift;
+			productName = R.Swift;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		6E7F8ABC1BF9989000FC9C8D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7F8AAE1BF9985000FC9C8D /* CloudKit.framework */; };
 		6EE3FBA01BEEF5F900C9CC3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3FB9F1BEEF5F900C9CC3B /* AppDelegate.swift */; };
 		6EE3FBA21BEEF5F900C9CC3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3FBA11BEEF5F900C9CC3B /* ViewController.swift */; };
 		6EE3FBA51BEEF5F900C9CC3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE3FBA31BEEF5F900C9CC3B /* Main.storyboard */; };
 		6EE3FBA71BEEF5F900C9CC3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EE3FBA61BEEF5F900C9CC3B /* Assets.xcassets */; };
 		6EE3FBAA1BEEF5F900C9CC3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE3FBA81BEEF5F900C9CC3B /* LaunchScreen.storyboard */; };
 		6EE3FBB51BEEF5F900C9CC3B /* CatalogAdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3FBB41BEEF5F900C9CC3B /* CatalogAdminUITests.swift */; };
-		6EFC75D31BF585A2002A4822 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFC75D21BF585A2002A4822 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +41,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E7F8AAD1BF9985000FC9C8D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = "<absolute>"; };
+		6E7F8AAE1BF9985000FC9C8D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = "<absolute>"; };
+		6E7F8AAF1BF9985000FC9C8D /* b64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = b64.framework; path = ../Carthage/Build/iOS/b64.framework; sourceTree = "<group>"; };
+		6E7F8AB01BF9985000FC9C8D /* JGProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JGProgressHUD.framework; path = ../Carthage/Build/iOS/JGProgressHUD.framework; sourceTree = "<group>"; };
+		6E7F8AB11BF9985000FC9C8D /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = ../Carthage/Build/iOS/JSON.framework; sourceTree = "<group>"; };
+		6E7F8AB21BF9985000FC9C8D /* SwiftFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFoundation.framework; path = ../Carthage/Build/iOS/SwiftFoundation.framework; sourceTree = "<group>"; };
+		6E7F8AB31BF9985000FC9C8D /* JTSImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTSImage.framework; path = ../Carthage/Build/iOS/JTSImage.framework; sourceTree = "<group>"; };
+		6E7F8AB41BF9985000FC9C8D /* JTSImage.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JTSImage.framework.dSYM; path = ../Carthage/Build/iOS/JTSImage.framework.dSYM; sourceTree = "<group>"; };
+		6E7F8AB51BF9985000FC9C8D /* b64.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = b64.framework.dSYM; path = ../Carthage/Build/iOS/b64.framework.dSYM; sourceTree = "<group>"; };
+		6E7F8AB61BF9985000FC9C8D /* JGProgressHUD.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JGProgressHUD.framework.dSYM; path = ../Carthage/Build/iOS/JGProgressHUD.framework.dSYM; sourceTree = "<group>"; };
+		6E7F8AB71BF9985000FC9C8D /* JSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JSON.framework.dSYM; path = ../Carthage/Build/iOS/JSON.framework.dSYM; sourceTree = "<group>"; };
+		6E7F8AB81BF9985000FC9C8D /* SwiftFoundation.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftFoundation.framework.dSYM; path = ../Carthage/Build/iOS/SwiftFoundation.framework.dSYM; sourceTree = "<group>"; };
+		6E7F8ABA1BF9985000FC9C8D /* CoreCatalog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreCatalog.xcodeproj; path = ../CoreCatalog/CoreCatalog.xcodeproj; sourceTree = "<group>"; };
+		6E7F8AC31BF9990700FC9C8D /* CoreCatalog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreCatalog.framework; path = "../../../Library/Developer/Xcode/DerivedData/Catalog-dyquqzmjtgjwtzguwzsfsqggawqk/Build/Products/Debug/CoreCatalog.framework"; sourceTree = "<group>"; };
 		6EE3FB9C1BEEF5F900C9CC3B /* CatalogAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatalogAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE3FB9F1BEEF5F900C9CC3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EE3FBA11BEEF5F900C9CC3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,7 +66,6 @@
 		6EE3FBB41BEEF5F900C9CC3B /* CatalogAdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAdminUITests.swift; sourceTree = "<group>"; };
 		6EE3FBB61BEEF5F900C9CC3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EFC75D11BF58593002A4822 /* CatalogAdmin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CatalogAdmin.entitlements; sourceTree = "<group>"; };
-		6EFC75D21BF585A2002A4822 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EFC75D31BF585A2002A4822 /* CloudKit.framework in Frameworks */,
+				6E7F8ABC1BF9989000FC9C8D /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,10 +87,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E7F8AB91BF9985000FC9C8D /* DYSM */ = {
+			isa = PBXGroup;
+			children = (
+				6E7F8AB41BF9985000FC9C8D /* JTSImage.framework.dSYM */,
+				6E7F8AB51BF9985000FC9C8D /* b64.framework.dSYM */,
+				6E7F8AB61BF9985000FC9C8D /* JGProgressHUD.framework.dSYM */,
+				6E7F8AB71BF9985000FC9C8D /* JSON.framework.dSYM */,
+				6E7F8AB81BF9985000FC9C8D /* SwiftFoundation.framework.dSYM */,
+			);
+			name = DYSM;
+			sourceTree = "<group>";
+		};
+		6E7F8ABB1BF9985000FC9C8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E7F8AC31BF9990700FC9C8D /* CoreCatalog.framework */,
+				6E7F8AAD1BF9985000FC9C8D /* MapKit.framework */,
+				6E7F8AAE1BF9985000FC9C8D /* CloudKit.framework */,
+				6E7F8AAF1BF9985000FC9C8D /* b64.framework */,
+				6E7F8AB01BF9985000FC9C8D /* JGProgressHUD.framework */,
+				6E7F8AB11BF9985000FC9C8D /* JSON.framework */,
+				6E7F8AB21BF9985000FC9C8D /* SwiftFoundation.framework */,
+				6E7F8AB31BF9985000FC9C8D /* JTSImage.framework */,
+				6E7F8AB91BF9985000FC9C8D /* DYSM */,
+				6E7F8ABA1BF9985000FC9C8D /* CoreCatalog.xcodeproj */,
+			);
+			name = Frameworks;
+			path = ../Catalog;
+			sourceTree = "<group>";
+		};
 		6EE3FB931BEEF5F900C9CC3B = {
 			isa = PBXGroup;
 			children = (
-				6EFC75D21BF585A2002A4822 /* CloudKit.framework */,
+				6E7F8ABB1BF9985000FC9C8D /* Frameworks */,
 				6EE3FB9E1BEEF5F900C9CC3B /* CatalogAdmin */,
 				6EE3FBB31BEEF5F900C9CC3B /* CatalogAdminUITests */,
 				6EE3FB9D1BEEF5F900C9CC3B /* Products */,
@@ -150,6 +207,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = ColemanCDA;
 				TargetAttributes = {
+					6E7F8AA81BF997EC00FC9C8D = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					6EE3FB9B1BEEF5F900C9CC3B = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 4W79SG34MW;
@@ -180,6 +240,7 @@
 			targets = (
 				6EE3FB9B1BEEF5F900C9CC3B /* CatalogAdmin */,
 				6EE3FBAF1BEEF5F900C9CC3B /* CatalogAdminUITests */,
+				6E7F8AA81BF997EC00FC9C8D /* R.Swift */,
 			);
 		};
 /* End PBXProject section */
@@ -203,6 +264,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E7F8AAC1BF997F500FC9C8D /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/rswift\" \"$SRCROOT\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6EE3FB981BEEF5F900C9CC3B /* Sources */ = {
@@ -252,6 +330,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6E7F8AA91BF997EC00FC9C8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6E7F8AAA1BF997EC00FC9C8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		6EE3FBB71BEEF5F900C9CC3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -394,6 +486,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6E7F8AAB1BF997EC00FC9C8D /* Build configuration list for PBXAggregateTarget "R.Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E7F8AA91BF997EC00FC9C8D /* Debug */,
+				6E7F8AAA1BF997EC00FC9C8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		6EE3FB971BEEF5F900C9CC3B /* Build configuration list for PBXProject "CatalogAdmin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

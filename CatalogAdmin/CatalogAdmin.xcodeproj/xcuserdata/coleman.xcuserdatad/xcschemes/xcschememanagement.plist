@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>R.Swift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>6E7F8AA81BF997EC00FC9C8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6EE3FB9B1BEEF5F900C9CC3B</key>
 		<dict>
 			<key>primary</key>

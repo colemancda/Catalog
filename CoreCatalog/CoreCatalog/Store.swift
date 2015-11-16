@@ -8,6 +8,10 @@
 
 import CoreLocation
 import CloudKit
+import CoreData
+import CoreDataStruct
+import CloudKitStruct
+import CloudKitStore
 
 public struct Store: CloudKitDecodable, Equatable {
     
