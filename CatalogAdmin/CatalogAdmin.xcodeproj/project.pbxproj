@@ -38,6 +38,27 @@
 			remoteGlobalIDString = 6EE3FB9B1BEEF5F900C9CC3B;
 			remoteInfo = CatalogAdmin;
 		};
+		6EFD84A01BFA20230015975F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E7F8ABA1BF9985000FC9C8D /* CoreCatalog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EE054F01BE89B5A00F31720;
+			remoteInfo = "CoreCatalog OS X";
+		};
+		6EFD84A21BFA20230015975F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E7F8ABA1BF9985000FC9C8D /* CoreCatalog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EE054FA1BE89B5A00F31720;
+			remoteInfo = CoreCatalogTests;
+		};
+		6EFD84A41BFA20230015975F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E7F8ABA1BF9985000FC9C8D /* CoreCatalog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EE3FBCD1BEEF63B00C9CC3B;
+			remoteInfo = "CoreCatalog iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +180,16 @@
 			path = CatalogAdminUITests;
 			sourceTree = "<group>";
 		};
+		6EFD849B1BFA20230015975F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EFD84A11BFA20230015975F /* CoreCatalog.framework */,
+				6EFD84A31BFA20230015975F /* CoreCatalogTests.xctest */,
+				6EFD84A51BFA20230015975F /* CoreCatalog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +267,12 @@
 			mainGroup = 6EE3FB931BEEF5F900C9CC3B;
 			productRefGroup = 6EE3FB9D1BEEF5F900C9CC3B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6EFD849B1BFA20230015975F /* Products */;
+					ProjectRef = 6E7F8ABA1BF9985000FC9C8D /* CoreCatalog.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6EE3FB9B1BEEF5F900C9CC3B /* CatalogAdmin */,
@@ -244,6 +281,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6EFD84A11BFA20230015975F /* CoreCatalog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoreCatalog.framework;
+			remoteRef = 6EFD84A01BFA20230015975F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6EFD84A31BFA20230015975F /* CoreCatalogTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreCatalogTests.xctest;
+			remoteRef = 6EFD84A21BFA20230015975F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6EFD84A51BFA20230015975F /* CoreCatalog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoreCatalog.framework;
+			remoteRef = 6EFD84A41BFA20230015975F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6EE3FB9A1BEEF5F900C9CC3B /* Resources */ = {
@@ -493,6 +554,7 @@
 				6E7F8AAA1BF997EC00FC9C8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EE3FB971BEEF5F900C9CC3B /* Build configuration list for PBXProject "CatalogAdmin" */ = {
 			isa = XCConfigurationList;

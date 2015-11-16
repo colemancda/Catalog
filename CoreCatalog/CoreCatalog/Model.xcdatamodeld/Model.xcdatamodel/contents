@@ -2,7 +2,8 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="Image" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="reference" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="image" inverseEntity="Product" syncable="YES"/>
+        <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="image" inverseEntity="Store" syncable="YES"/>
     </entity>
     <entity name="Listing" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +13,7 @@
     </entity>
     <entity name="Product" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="product" inverseEntity="Image" syncable="YES"/>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Listing" inverseName="product" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <entity name="Store" syncable="YES">
@@ -28,13 +30,13 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="store" inverseEntity="Image" syncable="YES"/>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Listing" inverseName="store" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Image" positionX="-36" positionY="99" width="128" height="90"/>
         <element name="Listing" positionX="-18" positionY="81" width="128" height="105"/>
-        <element name="Product" positionX="-36" positionY="72" width="128" height="75"/>
+        <element name="Product" positionX="-36" positionY="72" width="128" height="90"/>
         <element name="Store" positionX="-63" positionY="-18" width="128" height="270"/>
-        <element name="Image" positionX="-36" positionY="99" width="128" height="75"/>
     </elements>
 </model>
