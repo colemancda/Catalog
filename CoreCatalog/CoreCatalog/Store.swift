@@ -142,7 +142,62 @@ public extension Store {
     
     func save(context: NSManagedObjectContext) throws -> NSManagedObject {
         
+        // find or create from cache
+        let managedObject = try context.findOrCreateEntity(Store.entityName, withResourceID: self.identifier)
         
+        // set cached
+        managedObject.willCache()
+        
+        // set attributes
+        managedObject.set(name, CoreDataProperty.name)
+        managedObject.set(text, CoreDataProperty.text)
+        managedObject.set(phoneNumber, CoreDataProperty.phoneNumber)
+        managedObject.set(email, CoreDataProperty.email)
+        managedObject.set(country, CoreDataProperty.country)
+        managedObject.set(state, CoreDataProperty.state)
+        managedObject.set(city, CoreDataProperty.city)
+        managedObject.set(district, CoreDataProperty.district)
+        managedObject.set(street, CoreDataProperty.street)
+        managedObject.set(officeNumber, CoreDataProperty.officeNumber)
+        managedObject.set(directionsNote, CoreDataProperty.directionsNote)
+        managedObject.set(location?.latitude, CoreDataProperty.locationLatitiude)
+        managedObject.set(location?.longitude, CoreDataProperty.locationLongitude)
+        
+        // set relationships
+        try managedObject.setManagedObject(Image.entityName, image, CoreDataProperty.image, context)
+        
+        // save
+        try context.save()
+        
+        return managedObject
+    }
+    
+    init(managedObject: NSManagedObject) {
+        
+        guard managedObject.entity.name == Store.entityName else { fatalError("Invalid Entity") }
+        
+        self.identifier = managedObject.valueForKey(CoreDataResourceIDAttributeName) as! String
+        
+        // attributes
+        self.name = managedObject[CoreDataProperty.name.rawValue] as! String
+        self.text = managedObject[CoreDataProperty.text.rawValue] as! String
+        self.phoneNumber = managedObject[CoreDataProperty.phoneNumber.rawValue] as! String
+        self.email = managedObject[CoreDataProperty.email.rawValue] as! String
+        self.country = managedObject[CoreDataProperty.country.rawValue] as! String
+        self.street = managedObject[CoreDataProperty.street.rawValue] as! String
+        self.city = managedObject[CoreDataProperty.city.rawValue] as! String
+        self.district = managedObject[CoreDataProperty.district.rawValue] as! String
+        self.directionsNote = managedObject[CoreDataProperty.street.rawValue] as! String
+        self.officeNumber = managedObject[CoreDataProperty.street.rawValue] as? String
+        
+        if let latitude = managedObject[CoreDataProperty.locationLatitiude.rawValue] as? Double,
+            let longitude = managedObject[CoreDataProperty.locationLongitude.rawValue] as? Double {
+                
+            self.location = Location(latitude: latitude, longitude: longitude)
+        }
+        
+        // relationship
+        self.image = managedObject.getIdentifier(CoreDataProperty.image)
     }
 }
 
@@ -152,7 +207,7 @@ public extension Store {
     
     static func fetchFromCache(recordName: String, context: NSManagedObjectContext) throws -> NSManagedObject? {
         
-        
+        return try context.findEntity(Store.entityName, withResourceID: recordName)
     }
 }
 

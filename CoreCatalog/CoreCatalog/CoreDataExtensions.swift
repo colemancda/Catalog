@@ -82,12 +82,62 @@ internal extension NSManagedObjectContext {
 
 internal extension NSManagedObject {
     
+    // Convenience Setters
+    
+    func set<T: RawRepresentable where T.RawValue: StringLiteralConvertible>(value: AnyObject?, _ rawKey: T) {
+        
+        let key = String(rawKey)
+        
+        self.setValue(value, forKey: key)
+    }
+    
+    func setManagedObject<T: RawRepresentable where T.RawValue: StringLiteralConvertible>(entityName: String, _ identifier: String?, _ rawKey: T, _ context: NSManagedObjectContext) throws {
+        
+        let key = String(rawKey.rawValue)
+        
+        guard let identifier = identifier else {
+            
+            self.setValue(nil, forKey: key)
+        }
+        
+        let managedObject = try context.findOrCreateEntity(entityName, withResourceID: identifier)
+        
+        self.setValue(managedObject, forKey: key)
+    }
+    
+    subscript(key: String) -> AnyObject? {
+        
+        get { valueForKey(key) }
+        
+        set { setValue(newValue, forKey: key) }
+    }
+    
+    func willCache() {
+        
+        self.setValue(true, forKey: CoreDataCachedAttributeName)
+    }
+    
+    func getIdentifier<T: RawRepresentable where T.RawValue: StringLiteralConvertible>(rawKey: T) -> String? {
+        
+        let key = String(rawKey.rawValue)
+        
+        guard let destinationManagedObject = self[key] as? NSManagedObject
+            else { return nil }
+        
+        guard let identifier = destinationManagedObject[CoreDataResourceIDAttributeName] as? String
+            else { fatalError("Identifier nil on \(destinationManagedObject)") }
+        
+        return identifier
+    }
+    
     /// Wraps primitive accessor. 
-    func getValue<T: AnyObject>(key: String) -> T? {
+    func getValue<Value: AnyObject, Key: RawRepresentable where Key.RawValue: StringLiteralConvertible>(rawKey: Key) -> Value? {
+        
+        let key = String(rawKey.rawValue)
         
         let value = self.valueForKey(key)
         
-        return value as? T
+        return value as? Value
     }
     
     /// Get an array from a to-many relationship.
@@ -183,7 +233,5 @@ internal extension NSManagedObjectModel {
         }
     }
 }
-
-
 
 

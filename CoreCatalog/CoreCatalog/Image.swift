@@ -44,3 +44,9 @@ public extension Image {
     }
 }
 
+// MARK: - CoreData
+
+public extension Image {
+    
+    static var entityName: String { return "Image" }
+}
