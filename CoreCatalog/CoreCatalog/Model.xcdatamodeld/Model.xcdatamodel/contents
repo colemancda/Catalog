@@ -19,6 +19,7 @@
     <entity name="Store" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creator" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="directionsNote" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="district" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,6 +38,6 @@
         <element name="Image" positionX="-36" positionY="99" width="128" height="90"/>
         <element name="Listing" positionX="-18" positionY="81" width="128" height="105"/>
         <element name="Product" positionX="-36" positionY="72" width="128" height="90"/>
-        <element name="Store" positionX="-63" positionY="-18" width="128" height="270"/>
+        <element name="Store" positionX="-63" positionY="-18" width="128" height="285"/>
     </elements>
 </model>

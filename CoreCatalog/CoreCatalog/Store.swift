@@ -13,7 +13,7 @@ import CoreDataStruct
 import CloudKitStruct
 import CloudKitStore
 
-public struct Store: CloudKitDecodable, CloudKitCacheable, CoreDataEncodable, CoreDataDecodable, Equatable {
+public struct Store: CloudKitEncodable, CloudKitDecodable, CoreDataEncodable, CoreDataDecodable, CloudKitCacheable, Equatable {
     
     public let identifier: Identifier
     
@@ -50,6 +50,8 @@ public struct Store: CloudKitDecodable, CloudKitCacheable, CoreDataEncodable, Co
     // MARK: - Relationships
     
     public var image: Identifier?
+    
+    public var creator: Identifier
 }
 
 // MARK: - Equatable
@@ -80,23 +82,24 @@ public extension Store {
     
     var recordName: String { return identifier }
     
-     enum CloudKitField: String {
+    enum CloudKitField: String {
     
         case name, text, phoneNumber, email, country, state, city, district, street, officeNumber, directionsNote, location, image
     }
     
-    init?(recordName: String, values: [String : CKRecordValue]) {
+    init?(record: CKRecord) {
         
-        guard let name = values[CloudKitField.name.rawValue] as? String,
-            let text = values[CloudKitField.text.rawValue] as? String,
-            let phoneNumber = values[CloudKitField.phoneNumber.rawValue] as? String,
-            let email = values[CloudKitField.email.rawValue] as? String,
-            let country = values[CloudKitField.country.rawValue] as? String,
-            let state = values[CloudKitField.state.rawValue] as? String,
-            let city = values[CloudKitField.city.rawValue] as? String,
-            let district = values[CloudKitField.district.rawValue] as? String,
-            let street = values[CloudKitField.street.rawValue] as? String,
-            let directionsNote = values[CloudKitField.directionsNote.rawValue] as? String
+        guard let name = record[CloudKitField.name.rawValue] as? String,
+            let text = record[CloudKitField.text.rawValue] as? String,
+            let phoneNumber = record[CloudKitField.phoneNumber.rawValue] as? String,
+            let email = record[CloudKitField.email.rawValue] as? String,
+            let country = record[CloudKitField.country.rawValue] as? String,
+            let state = record[CloudKitField.state.rawValue] as? String,
+            let city = record[CloudKitField.city.rawValue] as? String,
+            let district = record[CloudKitField.district.rawValue] as? String,
+            let street = record[CloudKitField.street.rawValue] as? String,
+            let directionsNote = record[CloudKitField.directionsNote.rawValue] as? String,
+            let creatorID = record.creatorUserRecordID?.recordName
             else { return nil }
         
         self.identifier = recordName
@@ -111,21 +114,53 @@ public extension Store {
         self.district = district
         self.street = street
         self.directionsNote = directionsNote
+        self.creator = creatorID
         
-        if let officeNumber = values[CloudKitField.officeNumber.rawValue] as? String where officeNumber != "" {
+        if let officeNumber = record[CloudKitField.officeNumber.rawValue] as? String where officeNumber != "" {
             
             self.officeNumber = officeNumber
         }
         
-        if let imageReference = values[CloudKitField.image.rawValue] as? CKReference {
+        if let imageReference = record[CloudKitField.image.rawValue] as? CKReference {
             
             self.image = imageReference.recordID.recordName
         }
         
-        if let location = values[CloudKitField.location.rawValue] as? CLLocation {
+        if let location = record[CloudKitField.location.rawValue] as? CLLocation {
             
             self.location = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
+    }
+    
+    func toCloudKit() -> CKRecord {
+        
+        let record = CKRecord(recordType: Store.recordType, recordID: CKRecordID(recordName: recordName))
+        
+        record[CloudKitField.name.rawValue] = name
+        record[CloudKitField.text.rawValue] = text
+        record[CloudKitField.phoneNumber.rawValue] = phoneNumber
+        record[CloudKitField.email.rawValue] = email
+        record[CloudKitField.country.rawValue] = country
+        record[CloudKitField.state.rawValue] = state
+        record[CloudKitField.city.rawValue] = city
+        record[CloudKitField.district.rawValue] = district
+        record[CloudKitField.street.rawValue] = street
+        record[CloudKitField.officeNumber.rawValue] = officeNumber
+        record[CloudKitField.directionsNote.rawValue] = directionsNote
+        
+        if let location = self.location {
+            
+            let coordinates = location.toFoundation()
+            
+            record[CloudKitField.location.rawValue] = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        }
+        
+        if let image = self.image {
+            
+            record[CloudKitField.image.rawValue] = CKReference(recordID: CKRecordID(recordName: image), action: .None)
+        }
+        
+        return record
     }
 }
 
@@ -137,7 +172,7 @@ public extension Store {
     
     enum CoreDataProperty: String {
         
-        case name, text, phoneNumber, email, country, state, city, district, street, officeNumber, directionsNote, locationLatitiude, locationLongitude, image, listings
+        case name, text, phoneNumber, email, country, state, city, district, street, officeNumber, directionsNote, locationLatitiude, locationLongitude, image, listings, creator
     }
     
     func save(context: NSManagedObjectContext) throws -> NSManagedObject {
@@ -162,6 +197,7 @@ public extension Store {
         managedObject.set(directionsNote, CoreDataProperty.directionsNote)
         managedObject.set(location?.latitude, CoreDataProperty.locationLatitiude)
         managedObject.set(location?.longitude, CoreDataProperty.locationLongitude)
+        managedObject.set(creator, CoreDataProperty.creator)
         
         // set relationships
         try managedObject.setManagedObject(Image.entityName, image, CoreDataProperty.image, context)
@@ -189,6 +225,7 @@ public extension Store {
         self.district = managedObject[CoreDataProperty.district.rawValue] as! String
         self.directionsNote = managedObject[CoreDataProperty.street.rawValue] as! String
         self.officeNumber = managedObject[CoreDataProperty.street.rawValue] as? String
+        self.creator = managedObject[CoreDataProperty.creator.rawValue] as! String // ID is stored as string, not relationship
         
         if let latitude = managedObject[CoreDataProperty.locationLatitiude.rawValue] as? Double,
             let longitude = managedObject[CoreDataProperty.locationLongitude.rawValue] as? Double {
@@ -205,9 +242,9 @@ public extension Store {
 
 public extension Store {
     
-    static func fetchFromCache(recordName: String, context: NSManagedObjectContext) throws -> NSManagedObject? {
+    static func fetchFromCache(recordID: RecordID, context: NSManagedObjectContext) throws -> NSManagedObject? {
         
-        return try context.findEntity(Store.entityName, withResourceID: recordName)
+        return try context.findEntity(Store.entityName, withResourceID: recordID.recordName)
     }
 }
 
