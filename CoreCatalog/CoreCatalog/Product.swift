@@ -8,10 +8,12 @@
 
 import Foundation
 import CloudKit
+import CloudKitStore
+import CloudKitStruct
+import CoreData
+import CoreDataStruct
 
-public struct Product: CloudKitDecodable {
-    
-    public static let recordType = "Product"
+public struct Product: CloudKitEncodable, CloudKitDecodable, CoreDataEncodable, CoreDataDecodable, CloudKitCacheable, Equatable {
     
     public let identifier: Identifier
     
@@ -24,6 +26,8 @@ public struct Product: CloudKitDecodable {
 
 public extension Product {
     
+    static var recordType: String { return "Product" }
+    
     public enum CloudKitField: String {
         
         case name, image
@@ -35,17 +39,31 @@ public extension Product {
             let name = record[CloudKitField.name.rawValue] as? String
         else { return nil }
         
-        self.identifier = record.recordID.toIdentifier()
+        self.identifier = record.recordID.recordName
+        
         self.name = name
         
         if let imageReference = record[CloudKitField.image.rawValue] as? CKReference {
             
-            self.image = imageReference.recordID.toIdentifier()
+            self.image = imageReference.recordID.recordName
         }
+    }
+    
+    func toCloudKit() -> CKRecord {
+        
         
     }
 }
 
+// MARK: - CoreData
 
-
+public extension Product {
+    
+    static var entityName: String { return "Product" }
+    
+    enum CoreDataProperty: String {
+        
+        case name, text, phoneNumber, email, country
+    }
+}
 

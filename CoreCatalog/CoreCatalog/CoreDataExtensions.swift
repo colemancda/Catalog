@@ -117,9 +117,7 @@ internal extension NSManagedObject {
         self.setValue(true, forKey: CoreDataCachedAttributeName)
     }
     
-    func getIdentifier<T: RawRepresentable where T.RawValue: StringLiteralConvertible>(rawKey: T) -> String? {
-        
-        let key = String(rawKey.rawValue)
+    func getIdentifier(key: String) -> String? {
         
         guard let destinationManagedObject = self[key] as? NSManagedObject
             else { return nil }

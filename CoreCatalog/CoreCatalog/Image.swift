@@ -8,6 +8,7 @@
 
 import SwiftFoundation
 import CloudKit
+import CloudKitStruct
 
 public struct Image: CloudKitDecodable {
     
@@ -28,19 +29,21 @@ public extension Image {
     
     public enum CloudKitField: String {
         
-        case data
+        case data, reference
     }
     
     init?(record: CKRecord) {
         
         guard record.recordType == Image.recordType,
             let dataAsset = record[CloudKitField.data.rawValue] as? CKAsset,
-            let data = NSData(contentsOfURL: dataAsset.fileURL)
+            let data = NSData(contentsOfURL: dataAsset.fileURL),
+            let reference = record[CloudKitField.reference.rawValue] as? CKReference
             else { return nil }
         
-        self.identifier = record.recordID.toIdentifier()
+        self.identifier = record.recordID.recordName
         
         self.data = data.arrayOfBytes()
+        self.referenceID = reference.recordID.recordName
     }
 }
 

@@ -150,12 +150,12 @@
 		6E9732F51BF88D4300054D01 /* StoreListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreListingsViewController.swift; sourceTree = "<group>"; };
 		6E9ECB7A1BF84F2000607221 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		6EA6CAAD1BF7DBE700735B79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		6EA6CAAF1BF7E30100735B79 /* ProductListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListingsViewController.swift; sourceTree = "<group>"; };
+		6EA6CAAF1BF7E30100735B79 /* ProductListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProductListingsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6EADAED81BF822A3007CF04C /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		6EADAEE01BF82754007CF04C /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		6EBCF2CB1BF8399C007A999D /* JTSImage.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JTSImage.framework.dSYM; path = ../Carthage/Build/iOS/JTSImage.framework.dSYM; sourceTree = "<group>"; };
 		6EBCF2CF1BF839AC007A999D /* JTSImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTSImage.framework; path = ../Carthage/Build/iOS/JTSImage.framework; sourceTree = "<group>"; };
-		6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		6EF660DF1BF71AB900BACE52 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProductsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6EF660E31BF71D8000BACE52 /* b64.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = b64.framework.dSYM; path = ../Carthage/Build/iOS/b64.framework.dSYM; sourceTree = "<group>"; };
 		6EF660E41BF71D8000BACE52 /* JGProgressHUD.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JGProgressHUD.framework.dSYM; path = ../Carthage/Build/iOS/JGProgressHUD.framework.dSYM; sourceTree = "<group>"; };
 		6EF660E51BF71D8000BACE52 /* JSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JSON.framework.dSYM; path = ../Carthage/Build/iOS/JSON.framework.dSYM; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		6EF6610B1BF71F8C00BACE52 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		6EF661101BF72B9A00BACE52 /* ErrorAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		6EF661121BF72DEF00BACE52 /* StoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresViewController.swift; sourceTree = "<group>"; };
-		6EF661151BF79A1C00BACE52 /* LocalizedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
+		6EF661151BF79A1C00BACE52 /* LocalizedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LocalizedText.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6EFC75D41BF58828002A4822 /* Catalog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Catalog.entitlements; sourceTree = "<group>"; };
 		6EFC75D71BF58AA2002A4822 /* CoreCatalog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreCatalog.xcodeproj; path = ../CoreCatalog/CoreCatalog.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */

@@ -89,7 +89,8 @@ public extension Store {
     
     init?(record: CKRecord) {
         
-        guard let name = record[CloudKitField.name.rawValue] as? String,
+        guard record.recordType == Store.recordType,
+            let name = record[CloudKitField.name.rawValue] as? String,
             let text = record[CloudKitField.text.rawValue] as? String,
             let phoneNumber = record[CloudKitField.phoneNumber.rawValue] as? String,
             let email = record[CloudKitField.email.rawValue] as? String,
@@ -234,7 +235,7 @@ public extension Store {
         }
         
         // relationship
-        self.image = managedObject.getIdentifier(CoreDataProperty.image)
+        self.image = managedObject.getIdentifier(CoreDataProperty.image.rawValue)
     }
 }
 

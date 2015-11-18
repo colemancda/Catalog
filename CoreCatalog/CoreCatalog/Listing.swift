@@ -52,16 +52,17 @@ public extension Listing {
         case currency, price, product, store
     }
     
-    init?(recordName: String, values: [String : CKRecordValue]) {
+    init?(record: CKRecord) {
         
-        guard let currencyString = values[CloudKitField.currency.rawValue] as? String,
+        guard record.recordType == Listing.recordType,
+            let currencyString = record[CloudKitField.currency.rawValue] as? String,
             let currency = Currency(rawValue: currencyString),
-            let price = values[CloudKitField.price.rawValue] as? Double,
-            let product = values[CloudKitField.product.rawValue] as? CKReference,
-            let store = values[CloudKitField.store.rawValue] as? CKReference
+            let price = record[CloudKitField.price.rawValue] as? Double,
+            let product = record[CloudKitField.product.rawValue] as? CKReference,
+            let store = record[CloudKitField.store.rawValue] as? CKReference
             else { return nil }
         
-        self.identifier = recordName
+        self.identifier = record.recordID.recordName
         
         self.currency = currency
         self.price = price
@@ -69,16 +70,16 @@ public extension Listing {
         self.store = store.recordID.recordName
     }
     
-    func toCloudKit() -> (String, [String : CKRecordValue]) {
+    func toCloudKit() -> CKRecord {
         
-        var values = [String : CKRecordValue]()
+        let record = CKRecord(recordType: Listing.recordType, recordID: CKRecordID(recordName: recordName))
         
-        values[CloudKitField.currency.rawValue] = currency.rawValue
-        values[CloudKitField.price.rawValue] = price
-        values[CloudKitField.product.rawValue] = CKReference(recordID: CKRecordID(recordName: product), action: .DeleteSelf)
-        values[CloudKitField.store.rawValue] = CKReference(recordID: CKRecordID(recordName: store), action: .DeleteSelf)
+        record[CloudKitField.currency.rawValue] = currency.rawValue
+        record[CloudKitField.price.rawValue] = price
+        record[CloudKitField.product.rawValue] = CKReference(recordID: CKRecordID(recordName: product), action: .DeleteSelf)
+        record[CloudKitField.store.rawValue] = CKReference(recordID: CKRecordID(recordName: store), action: .DeleteSelf)
         
-        return (recordName, values)
+        return record
     }
 }
 
@@ -96,7 +97,7 @@ public extension Listing {
     func save(context: NSManagedObjectContext) throws -> NSManagedObject {
         
         // find or create from cache
-        let managedObject = try context.findOrCreateEntity(Listing.entityName, withResourceID: self.identifier)
+        let managedObject = try context.findOrCreateEntity(Listing.entityName, withResourceID: identifier)
         
         // set cached
         managedObject.willCache()
@@ -126,7 +127,8 @@ public extension Listing {
         self.price = managedObject[CoreDataProperty.price.rawValue] as! Double
         
         // relationship
-        self.product = managedObject.getIdentifier(CoreDataProperty.image)
+        self.product = managedObject.getIdentifier(CoreDataProperty.product.rawValue)!
+        self.store = managedObject.getIdentifier(CoreDataProperty.store.rawValue)!
     }
 }
 
@@ -134,9 +136,9 @@ public extension Listing {
 
 public extension Listing {
     
-    static func fetchFromCache(recordName: String, context: NSManagedObjectContext) throws -> NSManagedObject? {
+    static func fetchFromCache(recordID: RecordID, context: NSManagedObjectContext) throws -> NSManagedObject? {
         
-        return try context.findEntity(Listing.entityName, withResourceID: recordName)
+        return try context.findEntity(Listing.entityName, withResourceID: recordID.recordName)
     }
 }
 
@@ -148,9 +150,9 @@ public extension Listing {
         
         let components = [NSLocaleCurrencyCode: currency.rawValue]
         
-        let localeIdentifier = NSLocale.localeIdentifierFromComponents(components)
+        let localeRecordID = NSLocale.localeRecordIDFromComponents(components)
         
-        let locale = NSLocale(localeIdentifier: localeIdentifier)
+        let locale = NSLocale(localeRecordID: localeRecordID)
         
         return locale
     }
