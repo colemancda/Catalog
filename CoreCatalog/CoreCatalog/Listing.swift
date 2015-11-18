@@ -13,7 +13,7 @@ import CoreDataStruct
 import CloudKitStruct
 import CloudKitStore
 
-public struct Listing: CloudKitEncodable, CloudKitDecodable, CoreDataEncodable, CoreDataDecodable, CloudKitCacheable, Equatable {
+public struct Listing: CloudKitEncodable, CloudKitDecodable, CoreDataEncodable, CoreDataDecodable, CloudKitCacheable {
         
     public let identifier: Identifier
     
@@ -26,17 +26,6 @@ public struct Listing: CloudKitEncodable, CloudKitDecodable, CoreDataEncodable, 
     public var product: Identifier
     
     public var store: Identifier
-}
-
-// MARK: - Equatable
-
-public func == (lhs: Listing, rhs: Listing) -> Bool {
-    
-    return (lhs.identifier == rhs.identifier &&
-        lhs.currency == rhs.currency &&
-        lhs.price == rhs.price &&
-        lhs.product == rhs.product &&
-        lhs.store == rhs.store)
 }
 
 // MARK: - CloudKit
@@ -118,7 +107,7 @@ public extension Listing {
     
     init(managedObject: NSManagedObject) {
         
-        guard managedObject.entity.name == Store.entityName else { fatalError("Invalid Entity") }
+        guard managedObject.entity.name == Listing.entityName else { fatalError("Invalid Entity") }
         
         self.identifier = managedObject.valueForKey(CoreDataResourceIDAttributeName) as! String
         
@@ -150,9 +139,9 @@ public extension Listing {
         
         let components = [NSLocaleCurrencyCode: currency.rawValue]
         
-        let localeRecordID = NSLocale.localeRecordIDFromComponents(components)
+        let localeRecordID = NSLocale.localeIdentifierFromComponents(components)
         
-        let locale = NSLocale(localeRecordID: localeRecordID)
+        let locale = NSLocale(localeIdentifier: localeRecordID)
         
         return locale
     }

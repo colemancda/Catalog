@@ -103,7 +103,7 @@ public extension Store {
             let creatorID = record.creatorUserRecordID?.recordName
             else { return nil }
         
-        self.identifier = recordName
+        self.identifier = record.recordID.recordName
         
         self.name = name
         self.text = text
@@ -236,6 +236,7 @@ public extension Store {
         
         // relationship
         self.image = managedObject.getIdentifier(CoreDataProperty.image.rawValue)
+        self.creator = managedObject.getIdentifier(CoreDataProperty.image.rawValue)!
     }
 }
 

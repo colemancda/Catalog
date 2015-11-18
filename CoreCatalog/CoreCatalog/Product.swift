@@ -13,7 +13,7 @@ import CloudKitStruct
 import CoreData
 import CoreDataStruct
 
-public struct Product: CloudKitEncodable, CloudKitDecodable, CoreDataEncodable, CoreDataDecodable, CloudKitCacheable, Equatable {
+public struct Product: CloudKitEncodable, CloudKitDecodable, CoreDataEncodable, CoreDataDecodable, CloudKitCacheable {
     
     public let identifier: Identifier
     
