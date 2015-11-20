@@ -98,6 +98,8 @@ internal extension NSManagedObject {
         guard let identifier = identifier else {
             
             self.setValue(nil, forKey: key)
+            
+            return
         }
         
         let managedObject = try context.findOrCreateEntity(entityName, withResourceID: identifier)
@@ -107,7 +109,7 @@ internal extension NSManagedObject {
     
     subscript(key: String) -> AnyObject? {
         
-        get { valueForKey(key) }
+        get { return valueForKey(key) }
         
         set { setValue(newValue, forKey: key) }
     }

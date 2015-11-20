@@ -221,6 +221,7 @@ public extension Store {
         self.phoneNumber = managedObject[CoreDataProperty.phoneNumber.rawValue] as! String
         self.email = managedObject[CoreDataProperty.email.rawValue] as! String
         self.country = managedObject[CoreDataProperty.country.rawValue] as! String
+        self.state = managedObject[CoreDataProperty.state.rawValue] as! String
         self.street = managedObject[CoreDataProperty.street.rawValue] as! String
         self.city = managedObject[CoreDataProperty.city.rawValue] as! String
         self.district = managedObject[CoreDataProperty.district.rawValue] as! String
@@ -236,7 +237,6 @@ public extension Store {
         
         // relationship
         self.image = managedObject.getIdentifier(CoreDataProperty.image.rawValue)
-        self.creator = managedObject.getIdentifier(CoreDataProperty.image.rawValue)!
     }
 }
 
