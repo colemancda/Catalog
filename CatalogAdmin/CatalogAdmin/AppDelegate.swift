@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKitStore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             try! RemovePersistentStore()
         }
+        
+        // load Store
+        let _ = CloudKitStore.sharedStore
         
         // load cache
         do { try LoadPersistentStore() }

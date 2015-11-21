@@ -38,6 +38,15 @@
 		6ED6151F1C0053A900DB75C2 /* JSON.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6E7F8AB71BF9985000FC9C8D /* JSON.framework.dSYM */; };
 		6ED615201C0053A900DB75C2 /* SwiftFoundation.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6E7F8AB81BF9985000FC9C8D /* SwiftFoundation.framework.dSYM */; };
 		6ED615221C00541100DB75C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED615211C00541100DB75C2 /* R.generated.swift */; };
+		6ED615261C00553900DB75C2 /* CloudKitStore.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 6ED615231C00553900DB75C2 /* CloudKitStore.framework.dSYM */; };
+		6ED615271C00553900DB75C2 /* CloudKitStruct.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 6ED615241C00553900DB75C2 /* CloudKitStruct.framework.dSYM */; };
+		6ED615281C00553900DB75C2 /* CoreDataStruct.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 6ED615251C00553900DB75C2 /* CoreDataStruct.framework.dSYM */; };
+		6ED6152C1C00554B00DB75C2 /* CloudKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED615291C00554B00DB75C2 /* CloudKitStore.framework */; };
+		6ED6152D1C00554B00DB75C2 /* CloudKitStruct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6152A1C00554B00DB75C2 /* CloudKitStruct.framework */; };
+		6ED6152E1C00554B00DB75C2 /* CoreDataStruct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6152B1C00554B00DB75C2 /* CoreDataStruct.framework */; };
+		6ED6152F1C00558500DB75C2 /* CloudKitStore.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6ED615231C00553900DB75C2 /* CloudKitStore.framework.dSYM */; };
+		6ED615301C00558500DB75C2 /* CloudKitStruct.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6ED615241C00553900DB75C2 /* CloudKitStruct.framework.dSYM */; };
+		6ED615311C00558500DB75C2 /* CoreDataStruct.framework.dSYM in Copy Debug Symbols */ = {isa = PBXBuildFile; fileRef = 6ED615251C00553900DB75C2 /* CoreDataStruct.framework.dSYM */; };
 		6EE3FBA01BEEF5F900C9CC3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3FB9F1BEEF5F900C9CC3B /* AppDelegate.swift */; };
 		6EE3FBA21BEEF5F900C9CC3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3FBA11BEEF5F900C9CC3B /* ViewController.swift */; };
 		6EE3FBA51BEEF5F900C9CC3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE3FBA31BEEF5F900C9CC3B /* Main.storyboard */; };
@@ -116,6 +125,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				6ED6152F1C00558500DB75C2 /* CloudKitStore.framework.dSYM in Copy Debug Symbols */,
+				6ED615301C00558500DB75C2 /* CloudKitStruct.framework.dSYM in Copy Debug Symbols */,
+				6ED615311C00558500DB75C2 /* CoreDataStruct.framework.dSYM in Copy Debug Symbols */,
 				6ED6151C1C0053A900DB75C2 /* JTSImage.framework.dSYM in Copy Debug Symbols */,
 				6ED6151D1C0053A900DB75C2 /* b64.framework.dSYM in Copy Debug Symbols */,
 				6ED6151E1C0053A900DB75C2 /* JGProgressHUD.framework.dSYM in Copy Debug Symbols */,
@@ -150,6 +162,12 @@
 		6ED6150D1C00397F00DB75C2 /* LocalizedDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedDescription.swift; sourceTree = "<group>"; };
 		6ED615101C003E2F00DB75C2 /* MainQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainQueue.swift; sourceTree = "<group>"; };
 		6ED615211C00541100DB75C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		6ED615231C00553900DB75C2 /* CloudKitStore.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CloudKitStore.framework.dSYM; path = ../Carthage/Build/iOS/CloudKitStore.framework.dSYM; sourceTree = "<group>"; };
+		6ED615241C00553900DB75C2 /* CloudKitStruct.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CloudKitStruct.framework.dSYM; path = ../Carthage/Build/iOS/CloudKitStruct.framework.dSYM; sourceTree = "<group>"; };
+		6ED615251C00553900DB75C2 /* CoreDataStruct.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CoreDataStruct.framework.dSYM; path = ../Carthage/Build/iOS/CoreDataStruct.framework.dSYM; sourceTree = "<group>"; };
+		6ED615291C00554B00DB75C2 /* CloudKitStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKitStore.framework; path = ../Carthage/Build/iOS/CloudKitStore.framework; sourceTree = "<group>"; };
+		6ED6152A1C00554B00DB75C2 /* CloudKitStruct.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKitStruct.framework; path = ../Carthage/Build/iOS/CloudKitStruct.framework; sourceTree = "<group>"; };
+		6ED6152B1C00554B00DB75C2 /* CoreDataStruct.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDataStruct.framework; path = ../Carthage/Build/iOS/CoreDataStruct.framework; sourceTree = "<group>"; };
 		6EE3FB9C1BEEF5F900C9CC3B /* CatalogAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatalogAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE3FB9F1BEEF5F900C9CC3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EE3FBA11BEEF5F900C9CC3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +186,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED6152D1C00554B00DB75C2 /* CloudKitStruct.framework in Frameworks */,
 				6ED615131C00531500DB75C2 /* CoreCatalog.framework in Frameworks */,
+				6ED6152C1C00554B00DB75C2 /* CloudKitStore.framework in Frameworks */,
+				6ED6152E1C00554B00DB75C2 /* CoreDataStruct.framework in Frameworks */,
 				6E7F8ABC1BF9989000FC9C8D /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +212,9 @@
 				6E7F8AB61BF9985000FC9C8D /* JGProgressHUD.framework.dSYM */,
 				6E7F8AB71BF9985000FC9C8D /* JSON.framework.dSYM */,
 				6E7F8AB81BF9985000FC9C8D /* SwiftFoundation.framework.dSYM */,
+				6ED615231C00553900DB75C2 /* CloudKitStore.framework.dSYM */,
+				6ED615241C00553900DB75C2 /* CloudKitStruct.framework.dSYM */,
+				6ED615251C00553900DB75C2 /* CoreDataStruct.framework.dSYM */,
 			);
 			name = DYSM;
 			sourceTree = "<group>";
@@ -198,6 +222,9 @@
 		6E7F8ABB1BF9985000FC9C8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6ED615291C00554B00DB75C2 /* CloudKitStore.framework */,
+				6ED6152A1C00554B00DB75C2 /* CloudKitStruct.framework */,
+				6ED6152B1C00554B00DB75C2 /* CoreDataStruct.framework */,
 				6E7F8AAD1BF9985000FC9C8D /* MapKit.framework */,
 				6E7F8AAE1BF9985000FC9C8D /* CloudKit.framework */,
 				6E7F8AAF1BF9985000FC9C8D /* b64.framework */,
@@ -210,6 +237,14 @@
 			);
 			name = Frameworks;
 			path = ../Catalog;
+			sourceTree = "<group>";
+		};
+		6EC6C4BC1C0058A500D665DA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6ED614F91C00245F00DB75C2 /* NewStoreViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		6EE3FB931BEEF5F900C9CC3B = {
@@ -246,7 +281,7 @@
 				6ED615101C003E2F00DB75C2 /* MainQueue.swift */,
 				6ED615211C00541100DB75C2 /* R.generated.swift */,
 				6EE3FBA31BEEF5F900C9CC3B /* Main.storyboard */,
-				6ED614F91C00245F00DB75C2 /* NewStoreViewController.swift */,
+				6EC6C4BC1C0058A500D665DA /* Controllers */,
 				6EE3FBA61BEEF5F900C9CC3B /* Assets.xcassets */,
 				6EE3FBA81BEEF5F900C9CC3B /* LaunchScreen.storyboard */,
 				6EE3FBAB1BEEF5F900C9CC3B /* Info.plist */,
@@ -403,7 +438,10 @@
 			files = (
 				6EE3FBAA1BEEF5F900C9CC3B /* LaunchScreen.storyboard in Resources */,
 				6EE3FBA71BEEF5F900C9CC3B /* Assets.xcassets in Resources */,
+				6ED615281C00553900DB75C2 /* CoreDataStruct.framework.dSYM in Resources */,
 				6EE3FBA51BEEF5F900C9CC3B /* Main.storyboard in Resources */,
+				6ED615261C00553900DB75C2 /* CloudKitStore.framework.dSYM in Resources */,
+				6ED615271C00553900DB75C2 /* CloudKitStruct.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +494,9 @@
 				"$(SRCROOT)/../Carthage/Build/iOS/JSON.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/b64.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/JTSImage.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/CloudKitStore.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/CloudKitStruct.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/CoreDataStruct.framework",
 			);
 			name = "Copy Frameworks";
 			outputPaths = (

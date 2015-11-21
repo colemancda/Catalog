@@ -9,6 +9,7 @@
 import Foundation
 import CloudKitStore
 import CoreData
+import CoreCatalog
 
 extension CloudKitStore {
     
@@ -20,11 +21,11 @@ private var PersistentStore: NSPersistentStore?
 /// Loads the persistent store.
 func LoadPersistentStore() throws {
     
-    let url = SQLiteStoreFileURL
+    guard PersistentStore == nil else { return }
     
     // load SQLite store
     
-    PersistentStore = try CloudKitStore.sharedStore.managedObjectContext.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+    PersistentStore = try CloudKitStore.sharedStore.managedObjectContext.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: SQLiteStoreFileURL, options: nil)
 }
 
 func RemovePersistentStore() throws {
@@ -66,9 +67,14 @@ let SQLiteStoreFileURL: NSURL = {
 private let SharedStore: CloudKitStore = {
     
     let context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+    
+    context.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: CoreCatalog.ManagedObjectModel)
+    
+    PersistentStore = try! context.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: SQLiteStoreFileURL, options: nil)
    
     let store = CloudKitStore(context: context)
     
     return store
 }()
+
 

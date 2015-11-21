@@ -24,7 +24,7 @@ struct R {
   }
   
   struct reuseIdentifier {
-    static var storeCell: ReuseIdentifier<CatalogAdmin.StoreCell> { return ReuseIdentifier(identifier: "StoreCell") }
+    static var storeCell: ReuseIdentifier<UITableViewCell> { return ReuseIdentifier(identifier: "StoreCell") }
   }
   
   struct segue {

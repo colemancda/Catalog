@@ -13,7 +13,7 @@ import CloudKit
 import CloudKitStore
 import JGProgressHUD
 
-final class NewStoreViewController: UITableViewController, UIImagePickerControllerDelegate {
+final class NewStoreViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - IB Outlets
     
@@ -28,6 +28,8 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
     @IBOutlet weak var countryTextField: UITextField!
     
     @IBOutlet weak var stateTextField: UITextField!
+    
+    @IBOutlet weak var cityTextField: UITextField!
     
     @IBOutlet weak var districtTextField: UITextField!
     
@@ -99,6 +101,8 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
         
         let pickerController = UIImagePickerController()
         
+        pickerController.delegate = self
+        
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
@@ -150,6 +154,7 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
             let email = emailTextField.text where Store.Validate.email(email),
             let country = countryTextField.text where country != "",
             let state = stateTextField.text where state != "",
+            let city = cityTextField.text where city != "",
             let district = districtTextField.text where district != "",
             let street = streetTextField.text where street != "",
             let directionsNote = directionsNoteTextField.text where directionsNote != ""
