@@ -16,6 +16,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // print app info
+        print("Launching CatalogAdmin v\(AppVersion) Build \(AppBuild)")
+        
+        // nuke cache if new version
+        if let lastVersion = NSUserDefaults.standardUserDefaults().stringForKey(PreferenceKey.LastVersion.rawValue) where lastVersion != AppBuild  {
+            
+            try! RemovePersistentStore()
+        }
+        
+        // load cache
+        do { try LoadPersistentStore() }
+        catch {
+            
+            print("Could not load persistent store. \(error)")
+            
+            try! RemovePersistentStore()
+            
+            fatalError("Could not load persistent store.")
+        }
+        
+        // save last version used
+        NSUserDefaults.standardUserDefaults().setObject(AppBuild, forKey: PreferenceKey.LastVersion.rawValue)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
         return true
     }
 
