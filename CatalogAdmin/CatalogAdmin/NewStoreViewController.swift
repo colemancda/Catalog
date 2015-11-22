@@ -165,6 +165,7 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
         values[Store.CloudKitField.phoneNumber.rawValue] = phoneNumber
         values[Store.CloudKitField.country.rawValue] = country
         values[Store.CloudKitField.state.rawValue] = state
+        values[Store.CloudKitField.city.rawValue] = city
         values[Store.CloudKitField.district.rawValue] = district
         values[Store.CloudKitField.street.rawValue] = street
         values[Store.CloudKitField.directionsNote.rawValue] = directionsNote
