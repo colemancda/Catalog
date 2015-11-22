@@ -13,7 +13,7 @@ import CloudKit
 import CloudKitStore
 import JGProgressHUD
 
-final class NewStoreViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+final class NewStoreViewController: UITableViewController {
     
     // MARK: - IB Outlets
     
@@ -38,9 +38,7 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
     @IBOutlet weak var officeNumberTextField: UITextField!
     
     @IBOutlet weak var directionsNoteTextField: UITextField!
-    
-    @IBOutlet weak var imageTableViewCell: UITableViewCell!
-    
+        
     @IBOutlet weak var locationTableViewCell: UITableViewCell!
     
     // MARK: - Properties
@@ -68,14 +66,20 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
         
         progressHUD.interactionType = .BlockTouchesOnHUDView
         
+        // disable table view scrolling
         tableView.scrollEnabled = false
         
+        // disable Done button
+        navigationItem.rightBarButtonItem?.enabled = false
+        
         // create store
-        CloudKitStore.sharedStore.create(Store.recordType, values: values) { [weak self] (response: ErrorValue<Store>) -> () in
+        CloudKitStore.sharedStore.create(Store.recordType, values: values) { [weak self] (response: ErrorValue<Store>) in
             
             MainQueue {
                 
                 guard let controller = self else { return }
+                
+                controller.navigationItem.rightBarButtonItem?.enabled = true
                 
                 controller.tableView.scrollEnabled = true
                 
@@ -95,51 +99,6 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
                 }
             }
         }
-    }
-    
-    @IBAction func setImage(sender: AnyObject? = nil) {
-        
-        let pickerController = UIImagePickerController()
-        
-        pickerController.delegate = self
-        
-        self.presentViewController(pickerController, animated: true, completion: nil)
-    }
-    
-    // MARK: - UITableViewDelegate
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath)!
-        
-        if cell == imageTableViewCell {
-            
-            self.setImage()
-        }
-    }
-    
-    // MARK: - UIImagePickerControllerDelegate
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage ??
-            info[UIImagePickerControllerOriginalImage] as? UIImage
-            else { fatalError("No Image selected?") }
-        
-        let compressedImageData = UIImageJPEGRepresentation(image, 0.3)
-        
-        self.storeImageData = compressedImageData
-        
-        self.imageTableViewCell.accessoryType = .Checkmark
-        
-        self.imageTableViewCell.detailTextLabel?.text = ""
-        
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
-        picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Private Methods
@@ -174,10 +133,6 @@ final class NewStoreViewController: UITableViewController, UIImagePickerControll
             
             values[Store.CloudKitField.officeNumber.rawValue] = officeNumber
         }
-        
-        guard let imageData = self.storeImageData else { showErrorAlert(LocalizedText.ImageRequired.localizedString); return nil }
-        
-        values[Store.CloudKitField.image.rawValue] = imageData
         
         // TODO: Add location
         
