@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		6E7F8ABC1BF9989000FC9C8D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7F8AAE1BF9985000FC9C8D /* CloudKit.framework */; };
+		6E857A4C1C025B9D00E5A333 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E857A4B1C025B9D00E5A333 /* LoginViewController.swift */; };
+		6EC6C4C21C025AAA00D665DA /* StoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6C4C11C025AAA00D665DA /* StoresViewController.swift */; };
 		6ED614FA1C00245F00DB75C2 /* NewStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED614F91C00245F00DB75C2 /* NewStoreViewController.swift */; };
 		6ED615051C0032A600DB75C2 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED615041C0032A600DB75C2 /* Cache.swift */; };
 		6ED615071C00395700DB75C2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED615061C00395700DB75C2 /* Preferences.swift */; };
@@ -153,6 +155,8 @@
 		6E7F8AB71BF9985000FC9C8D /* JSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = JSON.framework.dSYM; path = ../Carthage/Build/iOS/JSON.framework.dSYM; sourceTree = "<group>"; };
 		6E7F8AB81BF9985000FC9C8D /* SwiftFoundation.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftFoundation.framework.dSYM; path = ../Carthage/Build/iOS/SwiftFoundation.framework.dSYM; sourceTree = "<group>"; };
 		6E7F8ABA1BF9985000FC9C8D /* CoreCatalog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreCatalog.xcodeproj; path = ../CoreCatalog/CoreCatalog.xcodeproj; sourceTree = "<group>"; };
+		6E857A4B1C025B9D00E5A333 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6EC6C4C11C025AAA00D665DA /* StoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoresViewController.swift; sourceTree = "<group>"; };
 		6ED614F91C00245F00DB75C2 /* NewStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStoreViewController.swift; sourceTree = "<group>"; };
 		6ED615041C0032A600DB75C2 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		6ED615061C00395700DB75C2 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -242,7 +246,9 @@
 		6EC6C4BC1C0058A500D665DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E857A4B1C025B9D00E5A333 /* LoginViewController.swift */,
 				6ED614F91C00245F00DB75C2 /* NewStoreViewController.swift */,
+				6EC6C4C11C025AAA00D665DA /* StoresViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -520,8 +526,10 @@
 				6ED6150F1C00397F00DB75C2 /* LocalizedDescription.swift in Sources */,
 				6ED615051C0032A600DB75C2 /* Cache.swift in Sources */,
 				6ED615091C00396D00DB75C2 /* Version.swift in Sources */,
+				6EC6C4C21C025AAA00D665DA /* StoresViewController.swift in Sources */,
 				6EE3FBA01BEEF5F900C9CC3B /* AppDelegate.swift in Sources */,
 				6ED615221C00541100DB75C2 /* R.generated.swift in Sources */,
+				6E857A4C1C025B9D00E5A333 /* LoginViewController.swift in Sources */,
 				6ED6150B1C00397500DB75C2 /* ErrorAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

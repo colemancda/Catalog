@@ -13,6 +13,7 @@ import CloudKit
 import CloudKitStore
 import JGProgressHUD
 
+/// View Controller for creating a new ```Store```.
 final class NewStoreViewController: UITableViewController {
     
     // MARK: - IB Outlets
@@ -44,9 +45,7 @@ final class NewStoreViewController: UITableViewController {
     // MARK: - Properties
     
     let progressHUD = JGProgressHUD(style: .Dark)
-    
-    private(set) var storeImageData: NSData?
-    
+        
     private(set) var location: Location?
     
     // MARK: - Actions

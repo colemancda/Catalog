@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import CloudKit
 
 /// The managed object model for the CoreCatalog framework.
 public var ManagedObjectModel: NSManagedObjectModel {
@@ -29,3 +30,6 @@ public let BundleIdentifier = "com.colemancda.CoreCatalog"
 public let CoreDataResourceIDAttributeName = "id"
 
 public let CoreDataCachedAttributeName = "cached"
+
+public let CloudKitContainer = CKContainer(identifier: "iCloud.com.colemancda.Catalog")
+
