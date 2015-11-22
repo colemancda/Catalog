@@ -30,6 +30,7 @@ struct R {
   struct segue {
     static var listingChooseCurrency: String { return "ListingChooseCurrency" }
     static var listingChooseProduct: String { return "ListingChooseProduct" }
+    static var login: String { return "Login" }
     static var newListing: String { return "newListing" }
     static var newProduct: String { return "newProduct" }
     static var newStore: String { return "newStore" }
@@ -51,7 +52,6 @@ struct R {
     }
     
     struct main {
-      static var initialViewController: UINavigationController? { return instance.instantiateInitialViewController() as? UINavigationController }
       static var instance: UIStoryboard { return UIStoryboard(name: "Main", bundle: nil) }
       
       static func validateImages() {

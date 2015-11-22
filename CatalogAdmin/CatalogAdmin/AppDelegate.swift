@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreCatalog
 import CloudKitStore
 
 @UIApplicationMain
@@ -27,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try! RemovePersistentStore()
         }
         
-        // load Store
-        let _ = CloudKitStore.sharedStore
+        // set database
+        CloudKitStore.sharedStore.cloudDatabase = CloudKitContainer.publicCloudDatabase
         
         // load cache
         do { try LoadPersistentStore() }

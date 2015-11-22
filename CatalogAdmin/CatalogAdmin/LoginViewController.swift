@@ -16,19 +16,67 @@ import JGProgressHUD
 /// View Controller for displaying the Stores.
 final class LoginViewController: UITableViewController {
     
+    // MARK: - Properties
+    
+    
+    
+    // MARK: - Loading
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidDisappear(true)
         
-        CloudKitStore.sharedStore.cloudDatabase .fetchUserRecordIDWithCompletionHandler { (<#CKRecordID?#>, <#NSError?#>) -> Void in
+        self.fetchUser()
+    }
+
+    // MARK: - Private Methods
+    
+    private func fetchUser() {
+        
+        CloudKitContainer.fetchUserRecordIDWithCompletionHandler { (recordID, error) -> Void in
             
-            
+            MainQueue {
+             
+                // error
+                guard error == nil else {
+                    
+                    let localizedText = error!.localizedDescription
+                    
+                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"),
+                        message: localizedText,
+                        preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: "Retry"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                        
+                        self.fetchUser()
+                        
+                        alert.dismissViewControllerAnimated(true, completion: nil)
+                    }))
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    return
+                }
+                
+                // segue
+                self.performSegueWithIdentifier(R.segue.login, sender: self)
+            }
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(true)
-        
-        
-    }
+    // MARK: - Segue
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch segue.identifier! {
+            
+        case R.segue.login:
+            
+            let destinationVC = segue.destinationViewController as! StoresViewController
+            
+            destinationVC.userID 
+            
+        default: return
+        }
+    }
 }
+

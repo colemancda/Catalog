@@ -16,6 +16,28 @@ import JGProgressHUD
 /// View Controller for displaying the user's ```Store``` instances.
 final class StoresViewController: UITableViewController {
     
+    // MARK: - Properties
     
-
+    var userID: Identifier!
+    
+    // MARK: - Loading
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.refresh()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func refresh(sender: AnyObject? = nil) {
+    
+        
+    }
+    
+    // MARK: - Private Methods
+    
+    
+    
+    
 }
