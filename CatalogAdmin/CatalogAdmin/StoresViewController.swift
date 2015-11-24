@@ -25,6 +25,8 @@ final class StoresViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard userID != nil else { fatalError("") }
+        
         self.refresh()
     }
     

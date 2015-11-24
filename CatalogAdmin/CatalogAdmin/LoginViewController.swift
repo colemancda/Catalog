@@ -18,7 +18,7 @@ final class LoginViewController: UITableViewController {
     
     // MARK: - Properties
     
-    
+    var userID: CKRecordID?
     
     // MARK: - Loading
     
@@ -57,6 +57,8 @@ final class LoginViewController: UITableViewController {
                     return
                 }
                 
+                self.userID = recordID
+                
                 // segue
                 self.performSegueWithIdentifier(R.segue.login, sender: self)
             }
@@ -73,7 +75,7 @@ final class LoginViewController: UITableViewController {
             
             let destinationVC = segue.destinationViewController as! StoresViewController
             
-            destinationVC.userID 
+            destinationVC.userID = self.userID!.recordName
             
         default: return
         }
