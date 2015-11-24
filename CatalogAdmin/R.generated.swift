@@ -24,7 +24,7 @@ struct R {
   }
   
   struct reuseIdentifier {
-    static var storeCell: ReuseIdentifier<UITableViewCell> { return ReuseIdentifier(identifier: "StoreCell") }
+    static var storeCell: ReuseIdentifier<CatalogAdmin.StoreCell> { return ReuseIdentifier(identifier: "StoreCell") }
   }
   
   struct segue {
@@ -52,6 +52,7 @@ struct R {
     }
     
     struct main {
+      static var initialViewController: CatalogAdmin.LoginViewController? { return instance.instantiateInitialViewController() as? CatalogAdmin.LoginViewController }
       static var instance: UIStoryboard { return UIStoryboard(name: "Main", bundle: nil) }
       
       static func validateImages() {

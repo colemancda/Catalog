@@ -14,11 +14,13 @@ import CloudKitStore
 import JGProgressHUD
 
 /// View Controller for displaying the Stores.
-final class LoginViewController: UITableViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     var userID: CKRecordID?
+    
+    let progressHUD = JGProgressHUD(style: .Dark)
     
     // MARK: - Loading
     
@@ -32,12 +34,21 @@ final class LoginViewController: UITableViewController {
     
     private func fetchUser() {
         
-        CloudKitContainer.fetchUserRecordIDWithCompletionHandler { (recordID, error) -> Void in
-            
+        // show HUD
+        progressHUD.showInView(self.view)
+        
+        progressHUD.minimumDisplayTime = 2.0
+        
+        CloudKitContainer.fetchUserRecordIDWithCompletionHandler { [weak self] (recordID, error) in
+                        
             MainQueue {
+                
+                guard let controller = self else { return }
              
                 // error
                 guard error == nil else {
+                    
+                    controller.progressHUD.dismissAnimated(false)
                     
                     let localizedText = error!.localizedDescription
                     
@@ -47,20 +58,22 @@ final class LoginViewController: UITableViewController {
                     
                     alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: "Retry"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
                         
-                        self.fetchUser()
+                        controller.fetchUser()
                         
                         alert.dismissViewControllerAnimated(true, completion: nil)
                     }))
                     
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    controller.presentViewController(alert, animated: true, completion: nil)
                     
                     return
                 }
                 
-                self.userID = recordID
+                controller.progressHUD.dismiss()
+                
+                controller.userID = recordID
                 
                 // segue
-                self.performSegueWithIdentifier(R.segue.login, sender: self)
+                controller.performSegueWithIdentifier(R.segue.login, sender: self)
             }
         }
     }
@@ -73,9 +86,11 @@ final class LoginViewController: UITableViewController {
             
         case R.segue.login:
             
-            let destinationVC = segue.destinationViewController as! StoresViewController
+            let navigationController = segue.destinationViewController as! UINavigationController
             
-            destinationVC.userID = self.userID!.recordName
+            let destinationVC = navigationController.topViewController as! StoresViewController
+            
+            destinationVC.userID = self.userID!
             
         default: return
         }
